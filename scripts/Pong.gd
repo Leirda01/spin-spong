@@ -3,7 +3,7 @@ extends Node
 const target: = 3
 var score: = 0
 var locked: = true
-
+var first_game: = true
 
 func _ready():
 	if $ScoreHandlers/ScoreLuc.connect("body_entered", self, "adriel_touched"):
@@ -15,9 +15,6 @@ func _ready():
 	if $ScoreHandlers/ScoreLock.connect("body_entered", self, "reset_lock"):
 		printerr("unable to connect 'body_entered' from 'ScoreLock'")
 
-	if $Ball.connect("resumed", self, "set_display"):
-		printerr("unable to connect 'resumed' from 'Ball'")
-
 
 func _process(delta):
 	if Input.is_key_pressed(KEY_R):
@@ -28,6 +25,15 @@ func _process(delta):
 	if Input.is_action_just_pressed("decrease") and -score < target - 1:
 		reset_lock(null)
 		score(-1)
+	
+	if $Ball.sleeping and Input.is_action_just_released("ui_accept"):
+		if first_game:
+			start_game()
+			first_game = false
+		else:
+			if $Crown.formed:
+				start_game()
+				$Crown.fade_out()
 
 
 func adriel_touched(_body: Ball):
@@ -41,6 +47,7 @@ func luc_touched(_body: Ball):
 func reset_lock(_body: Ball):
 	locked = false
 	if abs(score) >= target:
+		spawn_crown()
 		score = 0
 		$Ball.set_sleeping(true)
 
@@ -51,6 +58,18 @@ func score(point):
 		locked = true
 		set_display()
 
+func start_game():
+	$Ball.launch()
+	set_display()
 
 func set_display():
 	$RetroBackground.display_score(float(score) / float(target))
+	
+
+func spawn_crown():
+	var my_crown = preload("res://scenes/Crown.tscn").instance()
+	add_child(my_crown)
+	if score > 0:
+		$Crown.set_color($Paddles/PaddleAdriel.color)
+	else:
+		$Crown.set_color($Paddles/PaddleLuc.color)

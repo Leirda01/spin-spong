@@ -5,20 +5,14 @@ export var min_speed: int
 export var max_speed: int
 export(Color) var color
 
-
-signal resumed
-
 func _ready():
 	material.set_shader_param("targ_color", color)
 
 	linear_velocity = Vector2.LEFT
 	sleeping = true
 
-
-func _process(_delta):
-	if sleeping and Input.is_action_just_released("ui_accept"):
+func launch():
 		linear_velocity += Vector2.ZERO # force ball out of sleep
-		emit_signal("resumed")
 
 
 func _integrate_forces(_state):
