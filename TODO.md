@@ -3,7 +3,7 @@
 ## Adriel
 
 * [x] Implement 2nd paddle
-* [x] Fix scoring system.
+* [x] Fix scoring system
 * [x] Choose and use a proper naming convention for the nodes
 * [x] Implement game restart after reaching a certain score
 * [x] Implement scrolling background based on score
@@ -11,13 +11,13 @@
   * [x] (80%) the ball 'realistically' slows and stops out of reach other paddle
   * [x] Players must press Space to start a new game (it keeps it previous momentum)
   * [x] Score goes back to zero (and background goes back to center)
-  * [ ] A crown with the color of the winner pops up in the center of the play-field
+  * [x] A crown with the color of the winner pops up in the center of the play-field (thx luc)
 * [ ] Implement gameplay mechanics
   * [x] (50%) When the ball's direction is nearly vertical, it becomes completely vertical 
   * [?] When no key is pressed, the paddle swings back to its default -vertical- position
   * [ ] Multiple speeds for the ball : fast when the paddle had momentum (smash) and slow/normal otherwise
 * [ ] Rename 'session' from branches' names -> {luc, adriel}
-* [ ] Reorganize/clean up file structure ("shaders" and "materials").
+* [x] Reorganize/clean up file structure ("shaders" and "materials")
 
 ## Luc
 
