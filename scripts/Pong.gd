@@ -3,7 +3,6 @@ extends Node
 const target: = 3
 var score: = 0
 var locked: = true
-var first_game: = true
 
 func _ready():
 	if $ScoreHandlers/ScoreLuc.connect("body_entered", self, "adriel_touched"):
@@ -25,15 +24,12 @@ func _process(delta):
 	if Input.is_action_just_pressed("decrease") and -score < target - 1:
 		reset_lock(null)
 		score(-1)
-	
+
 	if $Ball.sleeping and Input.is_action_just_released("ui_accept"):
-		if first_game:
+		if not $Crown:
 			start_game()
-			first_game = false
-		else:
-			if $Crown.formed:
-				start_game()
-				$Crown.fade_out()
+		elif $Crown.fade_out():
+			start_game()
 
 
 func adriel_touched(_body: Ball):
@@ -49,7 +45,7 @@ func reset_lock(_body: Ball):
 	if abs(score) >= target:
 		spawn_crown()
 		score = 0
-		$Ball.set_sleeping(true)
+		$Ball.stop()
 
 
 func score(point):
@@ -58,13 +54,15 @@ func score(point):
 		locked = true
 		set_display()
 
+
 func start_game():
 	$Ball.launch()
 	set_display()
 
+
 func set_display():
 	$RetroBackground.display_score(float(score) / float(target))
-	
+
 
 func spawn_crown():
 	var my_crown = preload("res://scenes/effects/Crown.tscn").instance()

@@ -37,7 +37,7 @@ default_bus_layout=""
 
 [autoload]
 
-GlobalFunctions="*res://scripts/GlobalFunctions.gd"
+Effect="*res://scripts/Effect.gd"
 
 [display]
 

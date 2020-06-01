@@ -1,19 +1,23 @@
 extends AnimatedSprite
 
-var formed := false
 
 func _ready():
 	frame = 0
-	play ("Fade-in")
+	play("Fade-in")
+
 
 func fade_out():
-	$Particles.emitting = false
-	play ("Fade-out")
+	if animation == "Outline":
+		play("Fade-out")
+		$Particles.emitting = false
+		return true
+	return false
+
 
 func set_color(color):
 	material.set_shader_param("targ_color", color)
 	$Particles.color_ramp = \
-	GlobalFunctions.create_gradient_to_alpha(color,0.4,0)
+	Effect.create_alpha_gradient(color, 0.4, 0)
 
 
 func _on_Crown_animation_finished():
@@ -21,13 +25,11 @@ func _on_Crown_animation_finished():
 		"Fade-in":
 			play ("Outline")
 			$Particles.emitting = true
-		"Outline":
-			formed = true
 		"Fade-out":
-			$ParticlesDeletionTimer.start()
+			$ParticlesDeletion.start()
 			playing = false
-			frame = self.get_sprite_frames().get_frame_count("Fade-out")-1
+			frame = get_sprite_frames().get_frame_count("Fade-out") - 1
 
 
-func _on_ParticlesDeletionTimer_timeout():
+func _on_ParticlesDeletion_timeout():
 	queue_free()
