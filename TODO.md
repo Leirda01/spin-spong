@@ -26,7 +26,7 @@
 * [x] Implement shader and material to modify sprites' color
 * [x] (60%) Think about code / node structure for handling particles
 * [x] Draw and animate victory crown
-* [ ] Implement victory crown
+* [x] Implement victory crown
 * [ ] Polish
   * [ ] vibrations
   * [ ] freeze

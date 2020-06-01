@@ -17,8 +17,8 @@ _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.82996, 0.647556 ), -0.4523
 [node name="Crown" type="AnimatedSprite"]
 material = ExtResource( 3 )
 frames = ExtResource( 1 )
-animation = "Fade-in"
-frame = 40
+animation = "wait"
+frame = 21
 playing = true
 centered = false
 script = ExtResource( 4 )
