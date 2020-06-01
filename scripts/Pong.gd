@@ -67,7 +67,7 @@ func set_display():
 	
 
 func spawn_crown():
-	var my_crown = preload("res://scenes/Crown.tscn").instance()
+	var my_crown = preload("res://scenes/effects/Crown.tscn").instance()
 	add_child(my_crown)
 	if score > 0:
 		$Crown.set_color($Paddles/PaddleAdriel.color)

@@ -35,6 +35,10 @@ config/icon="res://icon.png"
 
 default_bus_layout=""
 
+[autoload]
+
+GlobalFunctions="*res://scripts/GlobalFunctions.gd"
+
 [display]
 
 window/size/width=480
