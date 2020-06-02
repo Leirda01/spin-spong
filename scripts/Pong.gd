@@ -5,15 +5,17 @@ var score: = 0
 var locked: = true
 
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_key_pressed(KEY_R):
 		get_tree().reload_current_scene()
 	if Input.is_action_just_pressed("increase") and score < target - 1:
 		reset()
 		score(1)
+		locked = false
 	if Input.is_action_just_pressed("decrease") and -score < target - 1:
 		reset()
 		score(-1)
+		locked = false
 
 	if $Ball.sleeping and Input.is_action_just_released("ui_accept"):
 		if not $Crown:
@@ -39,6 +41,7 @@ func score(point):
 
 func start_game():
 	$Ball.launch()
+	set_display()
 
 
 func set_display():
@@ -54,13 +57,13 @@ func spawn_crown():
 		$Crown.set_color($Paddles/PaddleLuc.color)
 
 
-func _on_ScoreLock_body_entered(body):
+func _on_ScoreLock_body_entered(_body):
 	reset()
 
 
-func _on_ScoreLuc_body_entered(body):
+func _on_ScoreLuc_body_entered(_body):
 	score(-1)
 
 
-func _on_ScoreAdriel_body_entered(body):
+func _on_ScoreAdriel_body_entered(_body):
 	score(1)
