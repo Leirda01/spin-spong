@@ -1,5 +1,7 @@
 extends Node
 
+const Crown = preload("res://scenes/effects/Crown.tscn")
+
 const target: = 3
 var score: = 0
 var locked: = true
@@ -49,12 +51,9 @@ func set_display():
 
 
 func spawn_crown():
-	var MyCrown = preload("res://scenes/effects/Crown.tscn").instance()
-	add_child(MyCrown)
-	if score > 0:
-		$Crown.set_color($Paddles/PaddleAdriel.color)
-	else:
-		$Crown.set_color($Paddles/PaddleLuc.color)
+	add_child(Crown.instance())
+	$Crown.set_color(($Paddles/PaddleAdriel if score > 0 \
+				else $Paddles/PaddleLuc).color)
 
 
 func _on_ScoreLock_body_entered(_body):
