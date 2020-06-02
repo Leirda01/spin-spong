@@ -54,3 +54,6 @@ max_speed = 200
 [node name="Border" parent="." instance=ExtResource( 2 )]
 
 [node name="RetroBackground" parent="." instance=ExtResource( 6 )]
+[connection signal="body_entered" from="ScoreHandlers/ScoreAdriel" to="." method="_on_ScoreAdriel_body_entered"]
+[connection signal="body_entered" from="ScoreHandlers/ScoreLuc" to="." method="_on_ScoreLuc_body_entered"]
+[connection signal="body_entered" from="ScoreHandlers/ScoreLock" to="." method="_on_ScoreLock_body_entered"]
