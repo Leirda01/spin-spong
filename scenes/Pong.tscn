@@ -42,8 +42,8 @@ scale = Vector2( 1, 270 )
 scale = Vector2( 1, 270 )
 
 [node name="ScoreLock" parent="ScoreHandlers" instance=ExtResource( 4 )]
-position = Vector2( 239, 0 )
-scale = Vector2( 1, 270 )
+position = Vector2( 74, 0 )
+scale = Vector2( 331, 270 )
 
 [node name="Ball" parent="." instance=ExtResource( 1 )]
 material = SubResource( 1 )
