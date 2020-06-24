@@ -36,6 +36,8 @@ physics_material_override = SubResource( 1 )
 gravity_scale = 0.0
 continuous_cd = 2
 script = ExtResource( 1 )
+base_speed = 200
+max_speed = 600
 color = Color( 1, 0.988235, 0, 1 )
 
 [node name="hitbox" type="CollisionShape2D" parent="."]
