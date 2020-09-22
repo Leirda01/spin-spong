@@ -3,6 +3,10 @@ extends Node
 const target: = 3
 var score: = 0
 var locked: = true
+const score_victory_effect = preload("res://scenes/effects/ScoreVictoryEffect.tscn")
+const score_normal_effect = preload("res://scenes/effects/ScoreNormalEffect.tscn")
+const score_bounce_effect = preload("res://scenes/effects/ScoreBounceEffect.tscn")
+const crown_effect = preload("res://scenes/effects/Crown.tscn")
 
 func _ready():
 	if $ScoreHandlers/ScoreLuc.connect("body_entered", self, "adriel_touched"):
@@ -49,10 +53,24 @@ func reset_lock(_body: Ball):
 
 
 func score(point):
+	var effect_x = get_tree().root.size.x
+	var effect_dir = 180
+	var effect_col = $Paddles/PaddleLuc.color
+	var effect_scene = score_normal_effect
+	if point < 0 :
+		effect_x = 0
+		effect_dir = 0
+		effect_col = $Paddles/PaddleAdriel.color
+	
 	if not locked:
 		score += point
 		locked = true
 		set_display()
+		if abs(score) >= target : effect_scene = score_victory_effect
+	else :
+		effect_scene = score_bounce_effect
+	
+	spawn_score_effect(effect_scene,effect_dir,effect_x,effect_col)
 
 
 func start_game():
@@ -65,9 +83,17 @@ func set_display():
 
 
 func spawn_crown():
-	var my_crown = preload("res://scenes/effects/Crown.tscn").instance()
-	add_child(my_crown)
+	var crown_effect_instance = crown_effect.instance()
+	add_child(crown_effect_instance)
 	if score > 0:
-		$Crown.set_color($Paddles/PaddleAdriel.color)
+		crown_effect_instance.set_color($Paddles/PaddleAdriel.color)
 	else:
-		$Crown.set_color($Paddles/PaddleLuc.color)
+		crown_effect_instance.set_color($Paddles/PaddleLuc.color)
+		
+func spawn_score_effect(scene, direction, x_position, color):
+	var score_effect_instance = scene.instance()
+	add_child(score_effect_instance)
+	score_effect_instance.rotation_degrees = direction
+	score_effect_instance.setup_color_ramps(color)
+	score_effect_instance.position.y = $Ball.position.y
+	score_effect_instance.position.x = x_position
