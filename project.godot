@@ -37,7 +37,7 @@ default_bus_layout=""
 
 [autoload]
 
-Effect="*res://scripts/Effect.gd"
+Effect="*res://scripts/effects/Effect.gd"
 Signals="*res://scripts/Signals.gd"
 
 [display]
