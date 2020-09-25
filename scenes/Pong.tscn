@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/Ball.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Border.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://scenes/Target.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/PaddleLock.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/RetroBackground.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/Camera.tscn" type="PackedScene" id=7]
 [ext_resource path="res://shaders/ShaderColor.shader" type="Shader" id=8]
 
 [sub_resource type="ShaderMaterial" id=1]
@@ -54,3 +55,6 @@ max_speed = 200
 [node name="Border" parent="." instance=ExtResource( 2 )]
 
 [node name="RetroBackground" parent="." instance=ExtResource( 6 )]
+z_index = -1
+
+[node name="Camera" parent="." instance=ExtResource( 7 )]

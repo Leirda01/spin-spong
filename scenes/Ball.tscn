@@ -41,16 +41,9 @@ color = Color( 1, 0.988235, 0, 1 )
 [node name="hitbox" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
 
-[node name="texture" type="TextureRect" parent="."]
+[node name="texture" type="Sprite" parent="."]
 use_parent_material = true
-margin_left = -8.97494
-margin_top = -9.08513
-margin_right = 9.02506
-margin_bottom = 8.91487
 texture = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="trailSmall" type="CPUParticles2D" parent="."]
 material = ExtResource( 5 )

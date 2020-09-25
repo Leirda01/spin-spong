@@ -17,6 +17,8 @@ func _ready():
 
 	if $ScoreHandlers/ScoreLock.connect("body_entered", self, "reset_lock"):
 		printerr("unable to connect 'body_entered' from 'ScoreLock'")
+	
+	randomize()
 
 
 func _process(delta):

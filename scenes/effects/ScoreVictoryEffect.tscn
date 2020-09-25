@@ -3,7 +3,7 @@
 [ext_resource path="res://sprites/effects/particles/CrownParticle.png" type="Texture" id=1]
 [ext_resource path="res://sprites/effects/particles/WinGradient.png" type="Texture" id=2]
 [ext_resource path="res://shaders/BlendAdd.tres" type="Material" id=3]
-[ext_resource path="res://scenes/effects/ScoreVictoryEffect.gd" type="Script" id=4]
+[ext_resource path="res://scripts/ScoreVictoryEffect.gd" type="Script" id=4]
 [ext_resource path="res://sprites/effects/particles/SmallTrail.png" type="Texture" id=5]
 [ext_resource path="res://sprites/effects/particles/big_round_glow.png" type="Texture" id=6]
 
@@ -11,7 +11,8 @@
 _data = [ Vector2( 0.450704, 1.89225 ), -0.0602289, -0.0602289, 0, 0, Vector2( 0.511737, 0.728598 ), 0.0, 0.0, 0, 0, Vector2( 1, 1.6824 ), -0.835793, 0.0, 0, 0 ]
 
 [sub_resource type="Curve" id=2]
-_data = [ Vector2( 0, 0.501557 ), 0.0, 0.0, 0, 0, Vector2( 0.126761, 1 ), 1.6804, 1.6804, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+max_value = 2.0
+_data = [ Vector2( 0, 1.04768 ), 0.0, 0.0, 0, 0, Vector2( 0.572327, 0.721148 ), -1.322, -1.322, 0, 0, Vector2( 1, 2 ), 0.0, 0.0, 0, 0 ]
 
 [node name="ScoreVictoryEffect" type="Node2D"]
 script = ExtResource( 4 )
@@ -34,6 +35,17 @@ scale_amount_curve = SubResource( 1 )
 scale = Vector2( 1.4, 1.6 )
 emitting = false
 amount = 1
+one_shot = true
+texture = ExtResource( 6 )
+spread = 0.0
+gravity = Vector2( 0, 0 )
+scale_amount_curve = SubResource( 2 )
+
+[node name="GlowBorder" type="CPUParticles2D" parent="."]
+scale = Vector2( 0.12, 3 )
+emitting = false
+amount = 1
+lifetime = 0.5
 one_shot = true
 texture = ExtResource( 6 )
 spread = 0.0

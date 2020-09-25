@@ -1,8 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://sprites/effects/particles/CrownParticle.png" type="Texture" id=1]
 [ext_resource path="res://sprites/effects/particles/WinGradient.png" type="Texture" id=2]
-[ext_resource path="res://scenes/effects/ScoreNormalEffect.gd" type="Script" id=3]
+[ext_resource path="res://scripts/ScoreNormalEffect.gd" type="Script" id=3]
 [ext_resource path="res://sprites/effects/particles/big_round_glow.png" type="Texture" id=6]
 
 [sub_resource type="Curve" id=1]
@@ -11,6 +11,10 @@ _data = [ Vector2( 0, 1.38363 ), 0.0, 0.0, 0, 0, Vector2( 0.995305, 0.750979 ), 
 
 [sub_resource type="Curve" id=2]
 _data = [ Vector2( 0, 0.501557 ), 0.0, 0.0, 0, 0, Vector2( 0.126761, 1 ), 1.6804, 1.6804, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Curve" id=3]
+max_value = 2.0
+_data = [ Vector2( 0, 1.04768 ), 0.0, 0.0, 0, 0, Vector2( 0.572327, 0.721148 ), -1.322, -1.322, 0, 0, Vector2( 1, 2 ), 0.0, 0.0, 0, 0 ]
 
 [node name="ScoreNormalEffect" type="Node2D"]
 script = ExtResource( 3 )
@@ -38,6 +42,20 @@ texture = ExtResource( 6 )
 spread = 0.0
 gravity = Vector2( 0, 0 )
 scale_amount_curve = SubResource( 2 )
+
+[node name="GlowBorder" type="CPUParticles2D" parent="."]
+scale = Vector2( 0.1, 1.5 )
+emitting = false
+amount = 1
+lifetime = 0.5
+one_shot = true
+texture = ExtResource( 6 )
+spread = 0.0
+gravity = Vector2( 0, 0 )
+scale_amount_curve = SubResource( 3 )
+__meta__ = {
+"_editor_description_": ""
+}
 
 [node name="Spread" type="CPUParticles2D" parent="."]
 position = Vector2( -2, 0 )
