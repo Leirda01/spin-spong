@@ -6,7 +6,6 @@
 [ext_resource path="res://scripts/effects/Crown.gd" type="Script" id=4]
 [ext_resource path="res://sprites/effects/particles/CrownParticle.png" type="Texture" id=5]
 
-
 [sub_resource type="Curve" id=1]
 min_value = -200.0
 max_value = 200.0
@@ -18,8 +17,8 @@ _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.82996, 0.647556 ), -0.4523
 [node name="Crown" type="AnimatedSprite"]
 material = ExtResource( 3 )
 frames = ExtResource( 1 )
-animation = "wait"
-frame = 21
+animation = "fade-in"
+frame = 40
 playing = true
 centered = false
 script = ExtResource( 4 )

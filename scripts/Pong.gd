@@ -21,7 +21,7 @@ func _ready():
 
 
 func _process(delta):
-	if Input.is_key_pressed(KEY_R):
+	if Input.is_action_just_pressed("restart"):
 		get_tree().reload_current_scene()
 	if Input.is_action_just_pressed("increase") and score < target - 1:
 		reset_lock(null)

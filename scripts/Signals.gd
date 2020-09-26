@@ -1,3 +1,3 @@
 extends Node
 
-signal screen_shake(duration,force)
+signal screen_shake(duration, strength)

@@ -3,7 +3,7 @@ extends Node2D
 func _ready():
 	for particle in [$Gradients, $Spread, $Glow, $GlowBorder]:
 		particle.emitting = true
-	Signals.emit_signal("screen_shake",0.1,2)
+	Signals.emit_signal("screen_shake",0.1,5)
 
 
 func setup_color_ramps(color):
