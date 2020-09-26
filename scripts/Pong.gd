@@ -56,11 +56,11 @@ func reset_lock(_body: Ball):
 func score(point):
 	var effect: = { "scene": score_normal_effect }
 	if point < 0:
-		effect["rotation_degrees"] = 180
+		effect["rotation_degrees"] = 0
 		effect["color_ramp"] = $Paddles/PaddleAdriel.color
 		effect["position"] = Vector2(0, $Ball.position.y)
 	else:
-		effect["rotation_degrees"] = 0
+		effect["rotation_degrees"] = 180
 		effect["color_ramp"] = $Paddles/PaddleLuc.color
 		effect["position"] = Vector2(get_tree().root.size.x, $Ball.position.y)
 
