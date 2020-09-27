@@ -32,7 +32,7 @@ default_bus_layout=""
 [autoload]
 
 Effect="*res://scripts/effects/Effect.gd"
-Signals="*res://scripts/Signals.gd"
+Signal="*res://scripts/Signal.gd"
 
 [display]
 

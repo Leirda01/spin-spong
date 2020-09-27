@@ -1,9 +1,8 @@
 extends Node2D
 
 func _ready():
-	for particle in [$Gradients, $Glow, $GlowBorder, $Line, $Spread]:
+	for particle in [$Gradients, $GradientsWhite, $Glow, $GlowBorder, $Line, $Spread]:
 		particle.emitting = true
-	Signals.emit_signal("screen_shake",0.2,7)
 
 
 func setup_color_ramps(color):
@@ -14,3 +13,8 @@ func setup_color_ramps(color):
 
 func _on_ParticlesDeletion_timeout():
 	queue_free()
+	
+
+func _on_JuiceTrigger_timeout():
+	Signal.emit_signal("screen_shake",0.2,10)
+	Effect.screen_freeze(60)

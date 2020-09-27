@@ -6,7 +6,7 @@ var strength_high: int
 var rng = RandomNumberGenerator.new()
 
 func _ready():
-	Signals.connect("screen_shake", self, "on_screen_shake")
+	Signal.connect("screen_shake", self, "on_screen_shake")
 
 
 func on_screen_shake(duration: float, strength: float):
