@@ -19,7 +19,8 @@ script = ExtResource( 3 )
 [node name="Paddles" type="Node" parent="."]
 
 [node name="PaddleAdriel" parent="Paddles" instance=ExtResource( 5 )]
-position = Vector2( 32, 135 )
+position = Vector2( 33, 128 )
+z_index = 15
 continuous_cd = 2
 rotation_direction = -1
 up = "luc_goes_up"
@@ -27,7 +28,8 @@ down = "luc_goes_down"
 color = Color( 0, 1, 0, 1 )
 
 [node name="PaddleLuc" parent="Paddles" instance=ExtResource( 5 )]
-position = Vector2( 448, 135 )
+position = Vector2( 421, 128 )
+z_index = 15
 continuous_cd = 2
 up = "adriel_goes_up"
 down = "adriel_goes_down"
@@ -36,19 +38,23 @@ color = Color( 1, 0, 1, 1 )
 [node name="ScoreHandlers" type="Node" parent="."]
 
 [node name="ScoreAdriel" parent="ScoreHandlers" instance=ExtResource( 4 )]
-position = Vector2( 479, 0 )
-scale = Vector2( 1, 270 )
+position = Vector2( 453, 0 )
+scale = Vector2( 1, 256 )
+input_pickable = false
 
 [node name="ScoreLuc" parent="ScoreHandlers" instance=ExtResource( 4 )]
-scale = Vector2( 1, 270 )
+scale = Vector2( 1, 256 )
+input_pickable = false
 
 [node name="ScoreLock" parent="ScoreHandlers" instance=ExtResource( 4 )]
-position = Vector2( 239, 0 )
-scale = Vector2( 1, 270 )
+position = Vector2( 227, 0 )
+scale = Vector2( 1, 256 )
+input_pickable = false
 
 [node name="Ball" parent="." instance=ExtResource( 1 )]
 material = SubResource( 1 )
-position = Vector2( 240, 135 )
+position = Vector2( 227, 128 )
+z_index = 10
 min_speed = 275
 max_speed = 200
 

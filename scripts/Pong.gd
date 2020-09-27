@@ -24,10 +24,10 @@ func _process(delta):
 	if Input.is_action_just_pressed("restart"):
 		get_tree().reload_current_scene()
 	if Input.is_action_just_pressed("increase") and score < target - 1:
-		reset_lock(null)
+		reset_lock($Ball)
 		score(1)
 	if Input.is_action_just_pressed("decrease") and -score < target - 1:
-		reset_lock(null)
+		reset_lock($Ball)
 		score(-1)
 
 	if $Ball.sleeping and Input.is_action_just_released("ui_accept"):
@@ -37,20 +37,21 @@ func _process(delta):
 			start_game()
 
 
-func adriel_touched(_body: Ball):
-	score(-1)
+func adriel_touched(_body):
+	if _body.name == "Ball": score(-1)
 
 
-func luc_touched(_body: Ball):
-	score(1)
+func luc_touched(_body):
+	if _body.name == "Ball": score(1)
 
 
-func reset_lock(_body: Ball):
-	locked = false
-	if abs(score) >= target:
-		spawn_crown()
-		score = 0
-		$Ball.stop()
+func reset_lock(_body):
+	if _body.name == "Ball":
+		locked = false
+		if abs(score) >= target:
+			spawn_crown()
+			score = 0
+			$Ball.stop()
 
 
 func score(point):

@@ -11,12 +11,12 @@ script = ExtResource( 3 )
 [node name="Gradient" type="Sprite" parent="."]
 texture = ExtResource( 4 )
 centered = false
-offset = Vector2( -240, 0 )
+offset = Vector2( -227, 0 )
 
 [node name="Background" type="Sprite" parent="."]
 texture = ExtResource( 2 )
 centered = false
-offset = Vector2( -240, 0 )
+offset = Vector2( -227, 0 )
 
 [node name="Overlay" type="Sprite" parent="."]
 texture = ExtResource( 1 )

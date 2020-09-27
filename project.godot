@@ -9,18 +9,12 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "RigidBody2D",
-"class": "Ball",
-"language": "GDScript",
-"path": "res://scripts/Ball.gd"
-}, {
 "base": "",
 "class": "GitAPI",
 "language": "NativeScript",
 "path": "res://git_api.gdns"
 } ]
 _global_script_class_icons={
-"Ball": "",
 "GitAPI": ""
 }
 
@@ -42,11 +36,10 @@ Signals="*res://scripts/Signals.gd"
 
 [display]
 
-window/size/width=480
-window/size/height=270
-window/size/resizable=false
-window/size/test_width=960
-window/size/test_height=540
+window/size/width=454
+window/size/height=256
+window/size/test_width=908
+window/size/test_height=512
 window/stretch/mode="viewport"
 
 [gdnative]
