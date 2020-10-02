@@ -43,7 +43,7 @@ scale = Vector2( 1, 128 )
 input_pickable = false
 
 [node name="ScoreLuc" parent="ScoreHandlers" instance=ExtResource( 4 )]
-position = Vector2( 0, 128 )
+position = Vector2( 1, 128 )
 scale = Vector2( 1, 128 )
 input_pickable = false
 
@@ -64,3 +64,6 @@ max_speed = 200
 z_index = -1
 
 [node name="Camera" parent="." instance=ExtResource( 7 )]
+[connection signal="body_entered" from="ScoreHandlers/ScoreAdriel" to="." method="luc_touched"]
+[connection signal="body_entered" from="ScoreHandlers/ScoreLuc" to="." method="adriel_touched"]
+[connection signal="body_entered" from="ScoreHandlers/ScoreLock" to="." method="reset_lock"]

@@ -10,16 +10,16 @@ var score: = 0
 var locked: = true
 
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("restart"):
 		get_tree().reload_current_scene()
 	if Input.is_action_just_pressed("increase") and score < target - 1:
 		reset_lock($Ball)
-		score(1)
+		score_add(1)
 		locked = false
 	if Input.is_action_just_pressed("decrease") and -score < target - 1:
 		reset_lock($Ball)
-		score(-1)
+		score_add(-1)
 		locked = false
 
 	if $Ball.sleeping and Input.is_action_just_released("ui_accept"):
@@ -29,16 +29,16 @@ func _process(delta):
 			start_game()
 
 
-func adriel_touched(_body):
-	if _body.name == "Ball": score(-1)
+func adriel_touched(body):
+	if body.name == "Ball": score_add(-1)
 
 
-func luc_touched(_body):
-	if _body.name == "Ball": score(1)
+func luc_touched(body):
+	if body.name == "Ball": score_add(1)
 
 
-func reset_lock(_body):
-	if _body.name == "Ball":
+func reset_lock(body):
+	if body.name == "Ball":
 		locked = false
 		if abs(score) >= target:
 			spawn_crown()
@@ -46,7 +46,7 @@ func reset_lock(_body):
 			$Ball.stop()
 
 
-func score(point):
+func score_add(point):
 	var effect: = { "scene": score_normal_effect }
 	if point < 0:
 		effect["rotation_degrees"] = 0
@@ -90,4 +90,3 @@ func spawn_score_effect(effect):
 	score_effect_instance.setup_color_ramps(effect["color_ramp"])
 	score_effect_instance.position = effect["position"]
 	add_child(score_effect_instance)
-

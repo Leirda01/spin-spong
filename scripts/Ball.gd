@@ -15,14 +15,12 @@ func _ready():
 
 
 func _integrate_forces(_state):
-	var direction: Vector2 = linear_velocity.normalized()
-
-	if direction.dot(Vector2.UP) > 0.8:
+	if linear_velocity.normalized().dot(Vector2.UP) > 0.8:
 		linear_velocity = Vector2.UP
-	if direction.dot(Vector2.DOWN) > 0.8:
+	if linear_velocity.normalized().dot(Vector2.DOWN) > 0.8:
 		linear_velocity = Vector2.DOWN
 
-	linear_velocity = direction * speed
+	linear_velocity = linear_velocity.normalized() * speed
 
 
 func launch():
