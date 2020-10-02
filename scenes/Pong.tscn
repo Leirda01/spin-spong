@@ -38,17 +38,18 @@ color = Color( 1, 0, 1, 1 )
 [node name="ScoreHandlers" type="Node" parent="."]
 
 [node name="ScoreAdriel" parent="ScoreHandlers" instance=ExtResource( 4 )]
-position = Vector2( 453, 0 )
-scale = Vector2( 1, 256 )
+position = Vector2( 453, 128 )
+scale = Vector2( 1, 128 )
 input_pickable = false
 
 [node name="ScoreLuc" parent="ScoreHandlers" instance=ExtResource( 4 )]
-scale = Vector2( 1, 256 )
+position = Vector2( 0, 128 )
+scale = Vector2( 1, 128 )
 input_pickable = false
 
 [node name="ScoreLock" parent="ScoreHandlers" instance=ExtResource( 4 )]
-position = Vector2( 227, 0 )
-scale = Vector2( 130, 256 )
+position = Vector2( 227, 128 )
+scale = Vector2( 130, 128 )
 input_pickable = false
 
 [node name="Ball" parent="." instance=ExtResource( 1 )]
