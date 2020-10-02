@@ -21,13 +21,6 @@ __meta__ = {
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
-[node name="Texture" type="TextureRect" parent="."]
+[node name="Sprite" type="Sprite" parent="."]
 use_parent_material = true
-margin_left = -8.60064
-margin_top = -37.1527
-margin_right = 9.39936
-margin_bottom = 36.8473
 texture = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}

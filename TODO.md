@@ -28,13 +28,13 @@
 * [x] Draw and animate victory crown
 * [x] Implement victory crown
 * [ ] Polish
-  * [ ] vibrations
-  * [ ] freeze
+  * [x] vibrations
+  * [x] freeze
   * [ ] Crosscode effect?
 * [ ] Implement particle system
   * [ ] "Ball" - "Border" impact
   * [ ] "Ball" - "Paddle" impact
-  * [ ] goal impact
-  * [?] victory impact
-  * [?] paddles' trails
+  * [x] goal impact
+  * [x] victory impact
+  * [ ] paddles' trails (once implemented but ultimately scrapped)
 * [x] Translate this TO-DO list to English (I hate you Diana).

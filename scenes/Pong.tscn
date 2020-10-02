@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/Ball.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Border.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://scenes/Target.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/PaddleLock.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/RetroBackground.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/Camera.tscn" type="PackedScene" id=7]
 [ext_resource path="res://shaders/ShaderColor.shader" type="Shader" id=8]
 
 [sub_resource type="ShaderMaterial" id=1]
@@ -18,7 +19,8 @@ script = ExtResource( 3 )
 [node name="Paddles" type="Node" parent="."]
 
 [node name="PaddleAdriel" parent="Paddles" instance=ExtResource( 5 )]
-position = Vector2( 32, 135 )
+position = Vector2( 33, 128 )
+z_index = 15
 continuous_cd = 2
 rotation_direction = -1
 up = "luc_goes_up"
@@ -26,7 +28,8 @@ down = "luc_goes_down"
 color = Color( 0, 1, 0, 1 )
 
 [node name="PaddleLuc" parent="Paddles" instance=ExtResource( 5 )]
-position = Vector2( 448, 135 )
+position = Vector2( 421, 128 )
+z_index = 15
 continuous_cd = 2
 up = "adriel_goes_up"
 down = "adriel_goes_down"
@@ -35,24 +38,30 @@ color = Color( 1, 0, 1, 1 )
 [node name="ScoreHandlers" type="Node" parent="."]
 
 [node name="ScoreAdriel" parent="ScoreHandlers" instance=ExtResource( 4 )]
-position = Vector2( 479, 0 )
-scale = Vector2( 1, 270 )
+position = Vector2( 453, 128 )
+scale = Vector2( 1, 128 )
+input_pickable = false
 
 [node name="ScoreLuc" parent="ScoreHandlers" instance=ExtResource( 4 )]
-scale = Vector2( 1, 270 )
+position = Vector2( 0, 128 )
+scale = Vector2( 1, 128 )
+input_pickable = false
 
 [node name="ScoreLock" parent="ScoreHandlers" instance=ExtResource( 4 )]
-position = Vector2( 74, 0 )
-scale = Vector2( 331, 270 )
+position = Vector2( 227, 128 )
+scale = Vector2( 130, 128 )
+input_pickable = false
 
 [node name="Ball" parent="." instance=ExtResource( 1 )]
 material = SubResource( 1 )
-position = Vector2( 240, 135 )
+position = Vector2( 227, 128 )
+z_index = 10
+min_speed = 275
 max_speed = 200
 
 [node name="Border" parent="." instance=ExtResource( 2 )]
 
 [node name="RetroBackground" parent="." instance=ExtResource( 6 )]
-[connection signal="body_entered" from="ScoreHandlers/ScoreAdriel" to="." method="_on_ScoreAdriel_body_entered"]
-[connection signal="body_entered" from="ScoreHandlers/ScoreLuc" to="." method="_on_ScoreLuc_body_entered"]
-[connection signal="body_entered" from="ScoreHandlers/ScoreLock" to="." method="_on_ScoreLock_body_entered"]
+z_index = -1
+
+[node name="Camera" parent="." instance=ExtResource( 7 )]

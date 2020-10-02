@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/background_overlay.png-ae1f30357648609f5fd32fb6660cd875.stex"
+path="res://.import/big_round_glow.png-6195e2645dad5eb0133e83dd73fe5933.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/background_overlay.png"
-dest_files=[ "res://.import/background_overlay.png-ae1f30357648609f5fd32fb6660cd875.stex" ]
+source_file="res://sprites/effects/particles/big_round_glow.png"
+dest_files=[ "res://.import/big_round_glow.png-6195e2645dad5eb0133e83dd73fe5933.stex" ]
 
 [params]
 

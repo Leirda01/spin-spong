@@ -16,7 +16,6 @@ onready var paddle:= $Paddle as PhysicsBody2D
 func _ready():
 	paddle.material.set_shader_param("targ_color", color)
 
-
 func _integrate_forces(_state):
 	var input = int(Input.is_action_pressed(down)) - \
 				int(Input.is_action_pressed(up))

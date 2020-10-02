@@ -1,4 +1,3 @@
-class_name Ball
 extends RigidBody2D
 
 export var base_speed: int
@@ -23,7 +22,6 @@ func _integrate_forces(_state):
 		linear_velocity = Vector2.DOWN
 
 	linear_velocity = direction * speed
-
 
 func launch():
 	linear_velocity += Vector2.ZERO
