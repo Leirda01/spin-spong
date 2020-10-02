@@ -29,7 +29,7 @@
 * [x] Implement victory crown
 * [ ] Polish
   * [x] vibrations
-  * [ ] freeze
+  * [x] freeze
   * [ ] Crosscode effect?
 * [ ] Implement particle system
   * [ ] "Ball" - "Border" impact

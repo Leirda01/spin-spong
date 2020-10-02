@@ -21,7 +21,6 @@ func _integrate_forces(_state):
 	if linear_velocity.length() < min_speed:
 		linear_velocity = linear_velocity.normalized() * min_speed
 
-
 func launch():
 	linear_velocity += Vector2.ZERO
 

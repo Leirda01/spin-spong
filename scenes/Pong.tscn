@@ -48,7 +48,7 @@ input_pickable = false
 
 [node name="ScoreLock" parent="ScoreHandlers" instance=ExtResource( 4 )]
 position = Vector2( 227, 0 )
-scale = Vector2( 1, 256 )
+scale = Vector2( 130, 256 )
 input_pickable = false
 
 [node name="Ball" parent="." instance=ExtResource( 1 )]
