@@ -4,9 +4,10 @@ export var base_speed: int
 export var max_speed: int
 export(Color) var color
 
-var speed = base_speed
+var speed
 
 func _ready():
+	speed = base_speed
 	material.set_shader_param("targ_color", color)
 
 	linear_velocity = Vector2.LEFT
@@ -14,7 +15,7 @@ func _ready():
 
 
 func _integrate_forces(_state):
-	var direction :Vector2 = linear_velocity.normalized()
+	var direction: Vector2 = linear_velocity.normalized()
 
 	if direction.dot(Vector2.UP) > 0.8:
 		linear_velocity = Vector2.UP
@@ -22,6 +23,7 @@ func _integrate_forces(_state):
 		linear_velocity = Vector2.DOWN
 
 	linear_velocity = direction * speed
+
 
 func launch():
 	linear_velocity += Vector2.ZERO
