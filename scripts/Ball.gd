@@ -12,6 +12,7 @@ func _ready():
 
 	linear_velocity = Vector2.LEFT
 	self.stop()
+	self.custom_integrator = true
 
 
 func _integrate_forces(_state):
@@ -21,7 +22,6 @@ func _integrate_forces(_state):
 		linear_velocity = Vector2.DOWN
 
 	linear_velocity = linear_velocity.normalized() * speed
-
 
 func launch():
 	linear_velocity += Vector2.ZERO
