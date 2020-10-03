@@ -1,10 +1,11 @@
-[gd_resource type="SpriteFrames" load_steps=78 format=2]
+[gd_resource type="SpriteFrames" load_steps=79 format=2]
 
 [ext_resource path="res://sprites/effects/crown/73.png" type="Texture" id=1]
 [ext_resource path="res://sprites/effects/crown/0.png" type="Texture" id=2]
 [ext_resource path="res://sprites/effects/crown/42.png" type="Texture" id=3]
 [ext_resource path="res://sprites/effects/crown/43.png" type="Texture" id=4]
 [ext_resource path="res://sprites/effects/crown/44.png" type="Texture" id=5]
+[ext_resource path="res://sprites/effects/crown/77.png" type="Texture" id=6]
 [ext_resource path="res://sprites/effects/crown/27.png" type="Texture" id=8]
 [ext_resource path="res://sprites/effects/crown/10.png" type="Texture" id=9]
 [ext_resource path="res://sprites/effects/crown/75.png" type="Texture" id=13]
@@ -85,7 +86,7 @@ animations = [ {
 "name": "wait",
 "speed": 20.0
 }, {
-"frames": [ ExtResource( 76 ), ExtResource( 85 ), ExtResource( 89 ), ExtResource( 82 ), ExtResource( 36 ), ExtResource( 77 ), ExtResource( 60 ), ExtResource( 67 ), ExtResource( 41 ), ExtResource( 70 ), ExtResource( 66 ), ExtResource( 72 ), ExtResource( 86 ), ExtResource( 87 ), ExtResource( 63 ), ExtResource( 81 ), ExtResource( 73 ), ExtResource( 64 ), ExtResource( 71 ), ExtResource( 65 ), ExtResource( 79 ), ExtResource( 62 ), ExtResource( 1 ), ExtResource( 19 ), ExtResource( 13 ), ExtResource( 14 ) ],
+"frames": [ ExtResource( 76 ), ExtResource( 85 ), ExtResource( 89 ), ExtResource( 82 ), ExtResource( 36 ), ExtResource( 77 ), ExtResource( 60 ), ExtResource( 67 ), ExtResource( 41 ), ExtResource( 70 ), ExtResource( 66 ), ExtResource( 72 ), ExtResource( 86 ), ExtResource( 87 ), ExtResource( 63 ), ExtResource( 81 ), ExtResource( 73 ), ExtResource( 64 ), ExtResource( 71 ), ExtResource( 65 ), ExtResource( 79 ), ExtResource( 62 ), ExtResource( 1 ), ExtResource( 19 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 6 ) ],
 "loop": false,
 "name": "fade-out",
 "speed": 35.0
@@ -93,5 +94,5 @@ animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 48 ), ExtResource( 34 ), ExtResource( 26 ), ExtResource( 30 ), ExtResource( 21 ), ExtResource( 28 ), ExtResource( 37 ), ExtResource( 23 ), ExtResource( 27 ), ExtResource( 9 ), ExtResource( 38 ), ExtResource( 47 ), ExtResource( 24 ), ExtResource( 49 ), ExtResource( 45 ), ExtResource( 32 ), ExtResource( 44 ), ExtResource( 31 ), ExtResource( 22 ), ExtResource( 29 ), ExtResource( 33 ), ExtResource( 51 ), ExtResource( 40 ), ExtResource( 50 ), ExtResource( 46 ), ExtResource( 42 ), ExtResource( 8 ), ExtResource( 69 ), ExtResource( 68 ), ExtResource( 84 ), ExtResource( 25 ), ExtResource( 57 ), ExtResource( 56 ), ExtResource( 53 ), ExtResource( 43 ), ExtResource( 88 ), ExtResource( 54 ), ExtResource( 55 ), ExtResource( 39 ), ExtResource( 35 ), ExtResource( 78 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
 "loop": false,
 "name": "fade-in",
-"speed": 25.0
+"speed": 40.0
 } ]

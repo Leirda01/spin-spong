@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://shaders/ShaderColor.material" type="Material" id=1]
 [ext_resource path="res://sprites/paddle.png" type="Texture" id=2]
+[ext_resource path="res://sprites/effects/PaddleGlow.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 3.98442, 33.9185 )
@@ -24,3 +25,10 @@ shape = SubResource( 1 )
 [node name="Sprite" type="Sprite" parent="."]
 use_parent_material = true
 texture = ExtResource( 2 )
+
+[node name="BackgroundGlow" type="Sprite" parent="."]
+self_modulate = Color( 1, 1, 1, 0.392157 )
+use_parent_material = true
+z_index = -2
+z_as_relative = false
+texture = ExtResource( 3 )

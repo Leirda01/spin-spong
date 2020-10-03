@@ -10,7 +10,7 @@ max_value = 2.0
 _data = [ Vector2( 0, 1.2449 ), 0.0, 0.0, 0, 0, Vector2( 0.125541, 1.44898 ), -2.60098, -2.60098, 0, 0, Vector2( 1, 0.469388 ), 0.538775, 0.0, 0, 0 ]
 
 [sub_resource type="Gradient" id=2]
-colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 0.686275 )
+colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 0.7 )
 
 [sub_resource type="Curve" id=3]
 _data = [ Vector2( 0, 0.501557 ), 0.0, 0.0, 0, 0, Vector2( 0.126761, 1 ), 1.6804, 1.6804, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
