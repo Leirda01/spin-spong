@@ -6,6 +6,7 @@ export(Color) var color
 
 var speed
 
+
 func _ready():
 	speed = base_speed
 	material.set_shader_param("targ_color", color)
@@ -20,10 +21,10 @@ func _integrate_forces(state):
 	if linear_velocity.normalized().dot(Vector2.DOWN) > 0.8:
 		linear_velocity = Vector2.DOWN
 	linear_velocity = linear_velocity.normalized() * speed
-	if state.get_contact_count() > 0 :
-		print(" ")
-		print(state.get_contact_local_position(0))
-		print(state.get_contact_collider_object(0).name)
+#	if state.get_contact_count() > 0 :
+#		print(" ")
+#		print(state.get_contact_local_position(0))
+#		print(state.get_contact_collider_object(0).name)
 
 
 func launch():

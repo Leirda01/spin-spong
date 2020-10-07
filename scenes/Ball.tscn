@@ -1,31 +1,26 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scripts/Ball.gd" type="Script" id=1]
 [ext_resource path="res://sprites/ball.png" type="Texture" id=2]
 [ext_resource path="res://shaders/ShaderColor.material" type="Material" id=3]
-[ext_resource path="res://sprites/effects/particles/BigTrail.png" type="Texture" id=4]
+[ext_resource path="res://scripts/effects/Trail.gd" type="Script" id=4]
 [ext_resource path="res://shaders/BlendAdd.tres" type="Material" id=5]
-[ext_resource path="res://sprites/effects/particles/SmallTrail.png" type="Texture" id=6]
-[ext_resource path="res://sprites/effects/particles/big_round_glow.png" type="Texture" id=7]
+[ext_resource path="res://sprites/effects/RhombusGlow.png" type="Texture" id=7]
+
 
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 0.0
 bounce = 1.0
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 6.72109
+radius = 7.0
 
-[sub_resource type="Curve" id=3]
-max_value = 1.5
-_data = [ Vector2( 0, 1.20682 ), 0.0, 0.0, 0, 0, Vector2( 0.646753, 0.345455 ), -0.874999, -0.874999, 0, 0, Vector2( 0.994805, 0.0909091 ), -0.175, 0.0, 0, 0 ]
+[sub_resource type="CanvasItemMaterial" id=3]
+blend_mode = 1
 
 [sub_resource type="Gradient" id=4]
-offsets = PoolRealArray( 0, 0.179558, 0.997238 )
-colors = PoolColorArray( 0.964706, 1, 0.0980392, 0.392157, 1, 0.952941, 0.054902, 0.352941, 1, 1, 0.992157, 0 )
-
-[sub_resource type="Gradient" id=5]
-offsets = PoolRealArray( 0.00276243, 1 )
-colors = PoolColorArray( 0.992157, 0.627451, 0, 0.705882, 1, 0, 0, 0.0392157 )
+offsets = PoolRealArray( 0.00268097, 0.337802, 0.560322, 1 )
+colors = PoolColorArray( 1, 1, 0, 0, 1, 0, 0.415686, 0.32549, 1, 0.47451, 0, 0.686275, 1, 1, 0, 1 )
 
 [node name="Ball" type="RigidBody2D"]
 material = ExtResource( 3 )
@@ -41,49 +36,53 @@ contact_monitor = true
 script = ExtResource( 1 )
 base_speed = 275
 max_speed = 600
-color = Color( 1, 0.988235, 0, 1 )
+color = Color( 1, 1, 0, 1 )
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="GlowBackground" type="Sprite" parent="."]
+self_modulate = Color( 1, 1, 1, 0.15 )
 use_parent_material = true
-texture = ExtResource( 2 )
-
-[node name="TrailSmall" type="CPUParticles2D" parent="."]
-material = ExtResource( 5 )
-amount = 50
-lifetime = 0.4
-lifetime_randomness = 1.0
-local_coords = false
-texture = ExtResource( 6 )
-emission_shape = 1
-emission_sphere_radius = 5.0
-gravity = Vector2( 0, 0 )
-linear_accel = -24.24
-angle_random = 1.0
-scale_amount_random = 1.0
-scale_amount_curve = SubResource( 3 )
-color_ramp = SubResource( 4 )
-
-[node name="TrailBig" type="CPUParticles2D" parent="."]
-material = ExtResource( 5 )
-amount = 24
-lifetime = 0.7
-local_coords = false
-texture = ExtResource( 4 )
-emission_shape = 2
-emission_rect_extents = Vector2( 1, 3 )
-gravity = Vector2( 0, 0 )
-linear_accel = -24.24
-scale_amount_random = 0.3
-scale_amount_curve = SubResource( 3 )
-color_ramp = SubResource( 5 )
-
-[node name="BackgroundGlow" type="Sprite" parent="."]
-self_modulate = Color( 1, 1, 1, 0.313726 )
-use_parent_material = true
-scale = Vector2( 0.8, 0.8 )
+scale = Vector2( 2, 2 )
 z_index = -2
 z_as_relative = false
 texture = ExtResource( 7 )
+
+[node name="Trails" type="Node" parent="."]
+
+[node name="TrailForeground" type="Line2D" parent="Trails"]
+self_modulate = Color( 1, 1, 1, 0.501961 )
+material = SubResource( 3 )
+width = 12.0
+default_color = Color( 0, 0, 1, 1 )
+gradient = SubResource( 4 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+script = ExtResource( 4 )
+trail_length = 22
+
+[node name="TrailBackground" type="Line2D" parent="Trails"]
+self_modulate = Color( 1, 1, 1, 0.3 )
+z_index = -3
+z_as_relative = false
+width = 12.0
+default_color = Color( 0, 0, 1, 1 )
+gradient = SubResource( 4 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+script = ExtResource( 4 )
+trail_length = 11
+
+[node name="GlowForeground" type="Sprite" parent="."]
+self_modulate = Color( 1, 1, 1, 0.4 )
+material = ExtResource( 5 )
+use_parent_material = true
+texture = ExtResource( 7 )
+
+[node name="Sprite" type="Sprite" parent="."]
+use_parent_material = true
+z_index = 1
+texture = ExtResource( 2 )
