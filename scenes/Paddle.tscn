@@ -1,9 +1,8 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://shaders/ShaderColor.material" type="Material" id=1]
-[ext_resource path="res://sprites/Paddle.png" type="Texture" id=2]
+[ext_resource path="res://sprites/paddle.png" type="Texture" id=2]
 [ext_resource path="res://sprites/effects/PaddleGlow.png" type="Texture" id=3]
-
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 3.98442, 33.9185 )
