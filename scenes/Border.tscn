@@ -1,8 +1,33 @@
-[gd_scene format=2]
+[gd_scene load_steps=3 format=2]
 
-[node name="Border" type="StaticBody2D"]
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 235, 4 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 4, 128 )
+
+[node name="Border" type="Node2D"]
+
+[node name="BorderWall" type="StaticBody2D" parent="."]
 collision_layer = 4
 collision_mask = 9
 
-[node name="Hitbox" type="CollisionPolygon2D" parent="."]
-polygon = PoolVector2Array( -10, -10, 464, -10, 464, 266, -10, 266, 0, 256, 454, 256, 454, 0, 0, 0, 0, 256, -10, 266 )
+[node name="WallTop" type="CollisionShape2D" parent="BorderWall"]
+position = Vector2( 227, -4 )
+shape = SubResource( 1 )
+
+[node name="WallBottom" type="CollisionShape2D" parent="BorderWall"]
+position = Vector2( 227, 260 )
+shape = SubResource( 1 )
+
+[node name="BorderGoal" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 9
+
+[node name="GoalLeft" type="CollisionShape2D" parent="BorderGoal"]
+position = Vector2( -4, 128 )
+shape = SubResource( 2 )
+
+[node name="GoalRight" type="CollisionShape2D" parent="BorderGoal"]
+position = Vector2( 458, 128 )
+shape = SubResource( 2 )

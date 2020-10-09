@@ -11,14 +11,14 @@ func fade_out():
 		play("fade-out")
 		$Particles.emitting = false
 		$GlowBackground.visible = false
-		Signal.emit_signal("screen_shake",0.3,3)
+		Signal.emit_signal("screen_shake",0.45,4)
 		return true
 	return false
 
 
 func set_color(color):
 	material.set_shader_param("targ_color", color)
-	$Particles.color_ramp = Effect.create_alpha_gradient(color, 0.4, 0)
+	$Particles.color_ramp = Effect.create_alpha_gradient(color, 0.7, 0)
 
 
 func _on_Crown_animation_finished():
@@ -27,7 +27,7 @@ func _on_Crown_animation_finished():
 			play("wait")
 			$Particles.emitting = true
 			$GlowBackground.visible = true
-			Signal.emit_signal("screen_shake",0.1,4)
+			Signal.emit_signal("screen_shake",0.25,5)
 		"fade-out":
 			$ParticlesDeletion.start()
 

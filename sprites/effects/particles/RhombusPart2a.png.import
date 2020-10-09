@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Paddle.png-794c9b4f7b53a335eeef29818f68feab.stex"
+path="res://.import/RhombusPart2a.png-8aa9ea87ceaaecbe2f07dfbda29d1b71.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Paddle.png"
-dest_files=[ "res://.import/Paddle.png-794c9b4f7b53a335eeef29818f68feab.stex" ]
+source_file="res://sprites/effects/particles/RhombusPart2a.png"
+dest_files=[ "res://.import/RhombusPart2a.png-8aa9ea87ceaaecbe2f07dfbda29d1b71.stex" ]
 
 [params]
 

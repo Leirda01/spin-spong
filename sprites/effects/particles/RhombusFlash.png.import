@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/WinGradient.png-dafbde3ad402ace773f21f067b42e50b.stex"
+path="res://.import/RhombusFlash.png-f2e5a421289a0fd09f6ce2a64d7ad6be.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/effects/particles/WinGradient.png"
-dest_files=[ "res://.import/WinGradient.png-dafbde3ad402ace773f21f067b42e50b.stex" ]
+source_file="res://sprites/effects/particles/RhombusFlash.png"
+dest_files=[ "res://.import/RhombusFlash.png-f2e5a421289a0fd09f6ce2a64d7ad6be.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

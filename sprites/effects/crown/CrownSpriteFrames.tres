@@ -94,5 +94,5 @@ animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 48 ), ExtResource( 34 ), ExtResource( 26 ), ExtResource( 30 ), ExtResource( 21 ), ExtResource( 28 ), ExtResource( 37 ), ExtResource( 23 ), ExtResource( 27 ), ExtResource( 9 ), ExtResource( 38 ), ExtResource( 47 ), ExtResource( 24 ), ExtResource( 49 ), ExtResource( 45 ), ExtResource( 32 ), ExtResource( 44 ), ExtResource( 31 ), ExtResource( 22 ), ExtResource( 29 ), ExtResource( 33 ), ExtResource( 51 ), ExtResource( 40 ), ExtResource( 50 ), ExtResource( 46 ), ExtResource( 42 ), ExtResource( 8 ), ExtResource( 69 ), ExtResource( 68 ), ExtResource( 84 ), ExtResource( 25 ), ExtResource( 57 ), ExtResource( 56 ), ExtResource( 53 ), ExtResource( 43 ), ExtResource( 88 ), ExtResource( 54 ), ExtResource( 55 ), ExtResource( 39 ), ExtResource( 35 ), ExtResource( 78 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
 "loop": false,
 "name": "fade-in",
-"speed": 40.0
+"speed": 30.0
 } ]

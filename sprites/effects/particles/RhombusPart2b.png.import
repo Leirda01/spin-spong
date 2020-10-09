@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/crown_particles_mask.png-582f1f2e5a9ac97621e470be83c5900d.stex"
+path="res://.import/RhombusPart2b.png-af62c709dd1a36500d735ed6eea81cc5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/effects/crown/crown_particles_mask.png"
-dest_files=[ "res://.import/crown_particles_mask.png-582f1f2e5a9ac97621e470be83c5900d.stex" ]
+source_file="res://sprites/effects/particles/RhombusPart2b.png"
+dest_files=[ "res://.import/RhombusPart2b.png-af62c709dd1a36500d735ed6eea81cc5.stex" ]
 
 [params]
 

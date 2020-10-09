@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/SmallTrail.png-15731c7661d6ade7a0687fdce11ca071.stex"
+path="res://.import/CrownParticlesMask.png-e4b73b255c45bd07d8b7f5af316852f6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/effects/particles/SmallTrail.png"
-dest_files=[ "res://.import/SmallTrail.png-15731c7661d6ade7a0687fdce11ca071.stex" ]
+source_file="res://sprites/effects/crown/CrownParticlesMask.png"
+dest_files=[ "res://.import/CrownParticlesMask.png-e4b73b255c45bd07d8b7f5af316852f6.stex" ]
 
 [params]
 

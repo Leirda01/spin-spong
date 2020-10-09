@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/CrownParticle.png-4793882dd18595d8536d0cf2e2ce5fc6.stex"
+path="res://.import/SquarePart1a.png-85d7f990cac60485990925731ee0c342.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/effects/particles/CrownParticle.png"
-dest_files=[ "res://.import/CrownParticle.png-4793882dd18595d8536d0cf2e2ce5fc6.stex" ]
+source_file="res://sprites/effects/particles/SquarePart1a.png"
+dest_files=[ "res://.import/SquarePart1a.png-85d7f990cac60485990925731ee0c342.stex" ]
 
 [params]
 

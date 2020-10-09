@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Paddle.png-794c9b4f7b53a335eeef29818f68feab.stex"
+path="res://.import/SquarePart2a.png-db1d7802a396298619c1e066d991275e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Paddle.png"
-dest_files=[ "res://.import/Paddle.png-794c9b4f7b53a335eeef29818f68feab.stex" ]
+source_file="res://sprites/effects/particles/SquarePart2a.png"
+dest_files=[ "res://.import/SquarePart2a.png-db1d7802a396298619c1e066d991275e.stex" ]
 
 [params]
 

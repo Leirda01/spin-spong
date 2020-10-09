@@ -19,7 +19,7 @@ script = ExtResource( 3 )
 [node name="Paddles" type="Node" parent="."]
 
 [node name="PaddleAdriel" parent="Paddles" instance=ExtResource( 5 )]
-position = Vector2( 33, 128 )
+position = Vector2( 32, 128 )
 z_index = 15
 continuous_cd = 2
 rotation_direction = -1
@@ -28,7 +28,7 @@ down = "luc_goes_down"
 color = Color( 0, 1, 0, 1 )
 
 [node name="PaddleLuc" parent="Paddles" instance=ExtResource( 5 )]
-position = Vector2( 421, 128 )
+position = Vector2( 422, 128 )
 z_index = 15
 continuous_cd = 2
 up = "adriel_goes_up"

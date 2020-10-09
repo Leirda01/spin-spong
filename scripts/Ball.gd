@@ -23,7 +23,7 @@ func _integrate_forces(state):
 	linear_velocity = linear_velocity.normalized() * speed
 #	if state.get_contact_count() > 0 :
 #		print(" ")
-#		print(state.get_contact_local_position(0))
+#		print(state.get_contact_local_normal(0))
 #		print(state.get_contact_collider_object(0).name)
 
 

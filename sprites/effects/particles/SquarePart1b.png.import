@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/BigTrail.png-4ecc6877091a9d1d863118adcb5bb020.stex"
+path="res://.import/SquarePart1b.png-b40f443ea144d533415cfc660320584a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/effects/particles/BigTrail.png"
-dest_files=[ "res://.import/BigTrail.png-4ecc6877091a9d1d863118adcb5bb020.stex" ]
+source_file="res://sprites/effects/particles/SquarePart1b.png"
+dest_files=[ "res://.import/SquarePart1b.png-b40f443ea144d533415cfc660320584a.stex" ]
 
 [params]
 
