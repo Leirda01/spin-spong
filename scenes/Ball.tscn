@@ -7,7 +7,6 @@
 [ext_resource path="res://shaders/BlendAdd.tres" type="Material" id=5]
 [ext_resource path="res://sprites/effects/RhombusGlow.png" type="Texture" id=7]
 
-
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 0.0
 bounce = 1.0
@@ -64,7 +63,7 @@ script = ExtResource( 4 )
 trail_length = 22
 
 [node name="TrailBackground" type="Line2D" parent="Trails"]
-self_modulate = Color( 1, 1, 1, 0.3 )
+self_modulate = Color( 1, 1, 1, 0.2 )
 z_index = -3
 z_as_relative = false
 width = 12.0
