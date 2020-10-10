@@ -74,7 +74,7 @@ func start_game():
 
 
 func set_display():
-	$RetroBackground.display_score(float(score) / float(target))
+	$RetroBackground.display_score(float(score) / float(target), score+target)
 
 
 func spawn_crown():
