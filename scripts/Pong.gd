@@ -9,6 +9,8 @@ const target: = 3
 var score: = 0
 var locked: = true
 
+func _ready():
+	set_display()
 
 func _process(_delta):
 	if Input.is_action_just_pressed("restart"):
@@ -74,7 +76,8 @@ func start_game():
 
 
 func set_display():
-	$RetroBackground.display_score(float(score) / float(target), score+target)
+	$RetroBackground.display_score(float(score) / float(target), score+target, 
+						$Paddles/PaddleAdriel.color, $Paddles/PaddleLuc.color)
 
 
 func spawn_crown():

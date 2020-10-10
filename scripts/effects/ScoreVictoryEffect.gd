@@ -3,7 +3,6 @@ extends Node2D
 func _ready():
 	for particle in [$Rhombuses, $Scatter, $Flash, $Glow]:
 		particle.emitting = true
-	
 
 
 func setup_color_ramps(color):
