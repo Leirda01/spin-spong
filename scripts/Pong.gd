@@ -10,6 +10,7 @@ var score: = 0
 var locked: = true
 
 func _ready():
+	$RetroBackground.setup($Paddles/PaddleAdriel.color, $Paddles/PaddleLuc.color)
 	set_display(0)
 
 func _process(_delta):
@@ -77,8 +78,7 @@ func start_game():
 
 func set_display(direction : int):
 	$RetroBackground.set_background(float(score) / float(target))
-	$RetroBackground.update_markers (score + target, direction, 
-						$Paddles/PaddleAdriel.color, $Paddles/PaddleLuc.color )
+	$RetroBackground.update_markers (score + target, direction)
 
 
 func spawn_crown():

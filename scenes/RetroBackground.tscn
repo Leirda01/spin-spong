@@ -1,11 +1,20 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://sprites/background/background_overlay.png" type="Texture" id=1]
-[ext_resource path="res://sprites/background/background.png" type="Texture" id=2]
 [ext_resource path="res://scripts/RetroBackground.gd" type="Script" id=3]
-[ext_resource path="res://sprites/background/gradient.png" type="Texture" id=4]
+[ext_resource path="res://sprites/background/BckMask.png" type="Texture" id=4]
 [ext_resource path="res://scenes/ScoreMarker.tscn" type="PackedScene" id=5]
 [ext_resource path="res://shaders/ShaderColor.shader" type="Shader" id=6]
+[ext_resource path="res://sprites/background/BckTile.png" type="Texture" id=7]
+[ext_resource path="res://sprites/background/BckRhombus.png" type="Texture" id=8]
+
+[sub_resource type="Gradient" id=15]
+offsets = PoolRealArray( 0, 0.153846 )
+colors = PoolColorArray( 0.101961, 0.101961, 0.101961, 1, 0.101961, 0.101961, 0.101961, 1 )
+
+[sub_resource type="GradientTexture" id=14]
+gradient = SubResource( 15 )
+width = 908
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 6 )
@@ -15,11 +24,11 @@ shader_param/targ_color = Color( 1, 1, 1, 1 )
 shader = ExtResource( 6 )
 shader_param/targ_color = Color( 1, 1, 1, 1 )
 
-[sub_resource type="ShaderMaterial" id=13]
+[sub_resource type="ShaderMaterial" id=3]
 shader = ExtResource( 6 )
 shader_param/targ_color = Color( 1, 1, 1, 1 )
 
-[sub_resource type="Shader" id=3]
+[sub_resource type="Shader" id=4]
 code = "shader_type canvas_item;
 
 uniform vec4 targ_color : hint_color = vec4(1,1,1,1) ;
@@ -30,54 +39,69 @@ void fragment() {
 	COLOR.a = curr_color_alpha;
 }"
 
-[sub_resource type="ShaderMaterial" id=4]
-shader = SubResource( 3 )
-shader_param/targ_color = Color( 1, 1, 1, 1 )
-
 [sub_resource type="ShaderMaterial" id=5]
-shader = SubResource( 3 )
+shader = SubResource( 4 )
 shader_param/targ_color = Color( 1, 1, 1, 1 )
 
 [sub_resource type="ShaderMaterial" id=6]
-shader = SubResource( 3 )
+shader = SubResource( 4 )
 shader_param/targ_color = Color( 1, 1, 1, 1 )
 
 [sub_resource type="ShaderMaterial" id=7]
-shader = SubResource( 3 )
+shader = SubResource( 4 )
 shader_param/targ_color = Color( 1, 1, 1, 1 )
 
 [sub_resource type="ShaderMaterial" id=8]
-shader = SubResource( 3 )
+shader = SubResource( 4 )
 shader_param/targ_color = Color( 1, 1, 1, 1 )
 
 [sub_resource type="ShaderMaterial" id=9]
-shader = SubResource( 3 )
+shader = SubResource( 4 )
 shader_param/targ_color = Color( 1, 1, 1, 1 )
 
 [sub_resource type="ShaderMaterial" id=10]
-shader = SubResource( 3 )
+shader = SubResource( 4 )
 shader_param/targ_color = Color( 1, 1, 1, 1 )
 
 [sub_resource type="ShaderMaterial" id=11]
-shader = SubResource( 3 )
+shader = SubResource( 4 )
 shader_param/targ_color = Color( 1, 1, 1, 1 )
 
 [sub_resource type="ShaderMaterial" id=12]
-shader = SubResource( 3 )
+shader = SubResource( 4 )
+shader_param/targ_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="ShaderMaterial" id=13]
+shader = SubResource( 4 )
 shader_param/targ_color = Color( 1, 1, 1, 1 )
 
 [node name="RetroBackground" type="Node2D"]
 script = ExtResource( 3 )
+luminosity = 0.35
 
 [node name="Gradient" type="Sprite" parent="."]
+scale = Vector2( 1, 256 )
 z_index = -10
-texture = ExtResource( 4 )
+texture = SubResource( 14 )
 centered = false
 offset = Vector2( -227, 0 )
 
-[node name="Background" type="Sprite" parent="."]
-texture = ExtResource( 2 )
+[node name="Grid" type="Sprite" parent="."]
+light_mask = 2
+texture = ExtResource( 7 )
 offset = Vector2( 227, 128 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 518, 256 )
+
+[node name="Rhombus" type="Sprite" parent="."]
+texture = ExtResource( 8 )
+offset = Vector2( 227, 128 )
+
+[node name="Mask" type="Light2D" parent="."]
+texture = ExtResource( 4 )
+offset = Vector2( 227, 128 )
+mode = 3
+range_item_cull_mask = 2
 
 [node name="Overlay" type="Sprite" parent="."]
 texture = ExtResource( 1 )
@@ -94,41 +118,41 @@ material = SubResource( 2 )
 position = Vector2( 131, 160 )
 
 [node name="Marker3" parent="ScoreMarkers" instance=ExtResource( 5 )]
-material = SubResource( 13 )
+material = SubResource( 3 )
 position = Vector2( 163, 64 )
 
 [node name="Marker4" parent="ScoreMarkers" instance=ExtResource( 5 )]
-material = SubResource( 4 )
+material = SubResource( 5 )
 position = Vector2( 163, 192 )
 
 [node name="Marker5" parent="ScoreMarkers" instance=ExtResource( 5 )]
-material = SubResource( 5 )
+material = SubResource( 6 )
 position = Vector2( 195, 32 )
 
 [node name="Marker6" parent="ScoreMarkers" instance=ExtResource( 5 )]
-material = SubResource( 6 )
+material = SubResource( 7 )
 position = Vector2( 195, 224 )
 
 [node name="Marker7" parent="ScoreMarkers" instance=ExtResource( 5 )]
-material = SubResource( 7 )
+material = SubResource( 8 )
 position = Vector2( 259, 32 )
 
 [node name="Marker8" parent="ScoreMarkers" instance=ExtResource( 5 )]
-material = SubResource( 8 )
+material = SubResource( 9 )
 position = Vector2( 259, 224 )
 
 [node name="Marker9" parent="ScoreMarkers" instance=ExtResource( 5 )]
-material = SubResource( 9 )
+material = SubResource( 10 )
 position = Vector2( 291, 64 )
 
 [node name="Marker10" parent="ScoreMarkers" instance=ExtResource( 5 )]
-material = SubResource( 10 )
+material = SubResource( 11 )
 position = Vector2( 291, 192 )
 
 [node name="Marker11" parent="ScoreMarkers" instance=ExtResource( 5 )]
-material = SubResource( 11 )
+material = SubResource( 12 )
 position = Vector2( 323, 96 )
 
 [node name="Marker12" parent="ScoreMarkers" instance=ExtResource( 5 )]
-material = SubResource( 12 )
+material = SubResource( 13 )
 position = Vector2( 323, 160 )
