@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/BckTile.png-975cc084940377483cb2166015eb1bac.stex"
+path="res://.import/BckGrid.png-60d2faff8f46e10025fd8542c242d6b8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/background/BckTile.png"
-dest_files=[ "res://.import/BckTile.png-975cc084940377483cb2166015eb1bac.stex" ]
+source_file="res://sprites/background/BckGrid.png"
+dest_files=[ "res://.import/BckGrid.png-60d2faff8f46e10025fd8542c242d6b8.stex" ]
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-flags/repeat=1
+flags/repeat=0
 flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false

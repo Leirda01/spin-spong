@@ -2,7 +2,7 @@ extends Node2D
 
 export var speed := 6.0
 export var luminosity := 0.4
-var grid_target := Vector2.ZERO
+var lines_target := Vector2.ZERO
 var gradient_target := Vector2.ZERO
 var color_left
 var color_right
@@ -28,12 +28,12 @@ func setup(col_left, col_right):
 func _process(delta):
 	$Gradient.position = \
 		$Gradient.position.linear_interpolate(gradient_target, delta * speed)
-	$Grid.region_rect.position = \
-		$Grid.region_rect.position.linear_interpolate(grid_target, delta * speed)
+	$Lines.position = \
+		$Lines.position.linear_interpolate(lines_target, delta * speed)
 
 
 func set_background(coeff: float):
-	grid_target = Vector2(-coeff * 384, 0) #multiples of 96
+	lines_target = Vector2(-coeff * 192, 0) #multiples of 96
 	gradient_target = Vector2(coeff * get_tree().root.size.x / 2, 0)
 
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/gradient.png-177db7ef8a81dff3454da045c18a9feb.stex"
+path="res://.import/BckLine.png-4d65d1550b94b864e94ee451d264bada.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/background/gradient.png"
-dest_files=[ "res://.import/gradient.png-177db7ef8a81dff3454da045c18a9feb.stex" ]
+source_file="res://sprites/background/BckLine.png"
+dest_files=[ "res://.import/BckLine.png-4d65d1550b94b864e94ee451d264bada.stex" ]
 
 [params]
 

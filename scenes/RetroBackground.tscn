@@ -1,12 +1,12 @@
 [gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://sprites/background/background_overlay.png" type="Texture" id=1]
-[ext_resource path="res://sprites/background/BckMask.png" type="Texture" id=2]
+[ext_resource path="res://sprites/background/BckLine.png" type="Texture" id=2]
 [ext_resource path="res://scripts/RetroBackground.gd" type="Script" id=3]
-[ext_resource path="res://sprites/background/BckTile.png" type="Texture" id=4]
+[ext_resource path="res://sprites/background/BckRhombus.png" type="Texture" id=4]
 [ext_resource path="res://scenes/ScoreMarker.tscn" type="PackedScene" id=5]
 [ext_resource path="res://shaders/ShaderColor.shader" type="Shader" id=6]
-[ext_resource path="res://sprites/background/BckRhombus.png" type="Texture" id=7]
+[ext_resource path="res://sprites/background/BckGrid.png" type="Texture" id=7]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.153846 )
@@ -77,6 +77,7 @@ shader_param/targ_color = Color( 1, 1, 1, 1 )
 
 [node name="RetroBackground" type="Node2D"]
 script = ExtResource( 3 )
+speed = 5.0
 luminosity = 0.35
 
 [node name="Gradient" type="Sprite" parent="."]
@@ -88,16 +89,14 @@ offset = Vector2( -227, 0 )
 
 [node name="Grid" type="Sprite" parent="."]
 light_mask = 2
-texture = ExtResource( 4 )
-offset = Vector2( 227, 128 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 518, 256 )
-
-[node name="Rhombus" type="Sprite" parent="."]
 texture = ExtResource( 7 )
 offset = Vector2( 227, 128 )
 
-[node name="Mask" type="Light2D" parent="."]
+[node name="Rhombus" type="Sprite" parent="."]
+texture = ExtResource( 4 )
+offset = Vector2( 227, 128 )
+
+[node name="Lines" type="Light2D" parent="."]
 texture = ExtResource( 2 )
 offset = Vector2( 227, 128 )
 mode = 3
