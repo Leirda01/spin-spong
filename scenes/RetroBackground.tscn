@@ -8,9 +8,6 @@
 [ext_resource path="res://shaders/ShaderColor.shader" type="Shader" id=6]
 [ext_resource path="res://sprites/background/BckRhombus.png" type="Texture" id=7]
 
-
-
-
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.153846 )
 colors = PoolColorArray( 0.101961, 0.101961, 0.101961, 1, 0.101961, 0.101961, 0.101961, 1 )
@@ -80,7 +77,6 @@ shader_param/targ_color = Color( 1, 1, 1, 1 )
 
 [node name="RetroBackground" type="Node2D"]
 script = ExtResource( 3 )
-speed = 6.0
 luminosity = 0.35
 
 [node name="Gradient" type="Sprite" parent="."]
@@ -106,6 +102,10 @@ texture = ExtResource( 2 )
 offset = Vector2( 227, 128 )
 mode = 3
 range_item_cull_mask = 2
+
+[node name="Overlay" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+offset = Vector2( 227, 128 )
 
 [node name="ScoreMarkers" type="Node2D" parent="."]
 
@@ -156,7 +156,3 @@ position = Vector2( 323, 96 )
 [node name="Marker12" parent="ScoreMarkers" instance=ExtResource( 5 )]
 material = SubResource( 15 )
 position = Vector2( 323, 160 )
-
-[node name="Overlay" type="Sprite" parent="."]
-texture = ExtResource( 1 )
-offset = Vector2( 227, 128 )
