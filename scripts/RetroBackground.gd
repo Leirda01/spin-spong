@@ -33,7 +33,7 @@ func _process(delta):
 
 
 func set_background(coeff: float):
-	grid_target = Vector2(-coeff * 384, 0)#192
+	grid_target = Vector2(-coeff * 384, 0) #multiples of 96
 	gradient_target = Vector2(coeff * get_tree().root.size.x / 2, 0)
 
 
