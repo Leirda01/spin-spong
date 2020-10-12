@@ -23,16 +23,16 @@ position = Vector2( 32, 128 )
 z_index = 15
 continuous_cd = 2
 rotation_direction = -1
-up = "luc_goes_up"
-down = "luc_goes_down"
+up = "adriel_goes_up"
+down = "adriel_goes_down"
 color = Color( 0, 1, 0, 1 )
 
 [node name="PaddleLuc" parent="Paddles" instance=ExtResource( 5 )]
 position = Vector2( 422, 128 )
 z_index = 15
 continuous_cd = 2
-up = "adriel_goes_up"
-down = "adriel_goes_down"
+up = "luc_goes_up"
+down = "luc_goes_down"
 color = Color( 1, 0, 1, 1 )
 
 [node name="ScoreHandlers" type="Node" parent="."]

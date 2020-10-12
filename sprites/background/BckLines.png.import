@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/background.png-dab58d3fb23e59ece075882b400bbf47.stex"
+path="res://.import/BckLines.png-6ad9b2d8268ee38f536be7b556f23e64.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/background/background.png"
-dest_files=[ "res://.import/background.png-dab58d3fb23e59ece075882b400bbf47.stex" ]
+source_file="res://sprites/background/BckLines.png"
+dest_files=[ "res://.import/BckLines.png-6ad9b2d8268ee38f536be7b556f23e64.stex" ]
 
 [params]
 

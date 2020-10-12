@@ -41,7 +41,7 @@ color = Color( 1, 1, 0, 1 )
 shape = SubResource( 2 )
 
 [node name="GlowBackground" type="Sprite" parent="."]
-self_modulate = Color( 1, 1, 1, 0.15 )
+self_modulate = Color( 1, 1, 1, 0.25 )
 use_parent_material = true
 scale = Vector2( 2, 2 )
 z_index = -2
@@ -76,7 +76,7 @@ script = ExtResource( 4 )
 trail_length = 11
 
 [node name="GlowForeground" type="Sprite" parent="."]
-self_modulate = Color( 1, 1, 1, 0.4 )
+self_modulate = Color( 1, 1, 1, 0.35 )
 material = ExtResource( 5 )
 use_parent_material = true
 texture = ExtResource( 7 )
