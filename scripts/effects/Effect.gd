@@ -2,7 +2,7 @@ extends Node
 
 func _ready():
 	randomize()
-	#Engine.time_scale = 0.1
+#	Engine.time_scale = 0.1
 
 static func create_alpha_gradient(color, start_alpha, end_alpha):
 	var gradient = Gradient.new()
