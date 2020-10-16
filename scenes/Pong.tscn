@@ -38,7 +38,7 @@ color = Color( 1, 0, 1, 1 )
 [node name="ScoreHandlers" type="Node" parent="."]
 
 [node name="ScoreAdriel" parent="ScoreHandlers" instance=ExtResource( 4 )]
-position = Vector2( 453, 128 )
+position = Vector2( 453.63, 128 )
 scale = Vector2( 1, 128 )
 input_pickable = false
 
