@@ -15,6 +15,7 @@ func _ready():
 
 	linear_velocity = Vector2.LEFT
 	self.stop()
+	self.custom_integrator = true
 
 
 func _integrate_forces(state):
@@ -33,7 +34,6 @@ func _integrate_forces(state):
 		if !effect.empty() :
 			effect["position"] = state.get_contact_local_position(0)
 			spawn_bounce_effect(effect)
-
 
 func launch():
 	linear_velocity += Vector2.ZERO
