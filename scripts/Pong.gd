@@ -9,6 +9,9 @@ const target: = 3
 var score: = 0
 var locked: = true
 
+func _ready():
+	$RetroBackground.setup($Paddles/PaddleAdriel.color, $Paddles/PaddleLuc.color)
+	set_display(0)
 
 func _process(_delta):
 	if Input.is_action_just_pressed("restart"):
@@ -60,7 +63,7 @@ func score_add(point):
 	if not locked:
 		score += point
 		locked = true
-		set_display()
+		set_display(point)
 		if abs(score) >= target:
 			effect["scene"] = score_victory_effect
 	else :
@@ -72,11 +75,12 @@ func score_add(point):
 
 func start_game():
 	$Ball.launch()
-	set_display()
+	set_display(0)
 
 
-func set_display():
-	$RetroBackground.display_score(float(score) / float(target))
+func set_display(direction : int):
+	$RetroBackground.set_background(float(score) / float(target))
+	$RetroBackground.update_markers (score + target, direction)
 
 
 func spawn_crown():
