@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/paddle.png-b1797fd13aedff7ea2d02e9071986fb0.stex"
+path="res://.import/BckMask.png-fcbc8635a1d161281c01aba42687366e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/paddle.png"
-dest_files=[ "res://.import/paddle.png-b1797fd13aedff7ea2d02e9071986fb0.stex" ]
+source_file="res://sprites/background/BckMask.png"
+dest_files=[ "res://.import/BckMask.png-fcbc8635a1d161281c01aba42687366e.stex" ]
 
 [params]
 
