@@ -1,5 +1,7 @@
 extends RigidBody2D
 
+const bounce_wall_effect = preload("res://scenes/effects/BounceWallEffect.tscn")
+
 export var base_speed: int
 export var max_speed: int
 export(Color) var color
@@ -21,10 +23,16 @@ func _integrate_forces(state):
 	if linear_velocity.normalized().dot(Vector2.DOWN) > 0.8:
 		linear_velocity = Vector2.DOWN
 	linear_velocity = linear_velocity.normalized() * speed
-#	if state.get_contact_count() > 0 :
-#		print(" ")
-#		print(state.get_contact_local_normal(0))
-#		print(state.get_contact_collider_object(0).name)
+	
+	if state.get_contact_count() > 0 :
+		var effect: = {}
+		if state.get_contact_collider_object(0).is_in_group("BorderWalls"):
+			effect["scene"] = bounce_wall_effect
+			effect["rotation"] = rad2deg(state.get_contact_local_normal(0).angle())
+			effect["color_ramp"] = color
+		if !effect.empty() :
+			effect["position"] = state.get_contact_local_position(0)
+			spawn_bounce_effect(effect)
 
 
 func launch():
@@ -38,3 +46,11 @@ func stop():
 func increase_speed():
 	if speed < max_speed:
 		speed += base_speed
+
+
+func spawn_bounce_effect(effect):
+	var bounce_effect_instance = effect["scene"].instance()
+	bounce_effect_instance.setup_color_ramps(effect["color_ramp"])
+	bounce_effect_instance.rotation_degrees = effect["rotation"]
+	bounce_effect_instance.position = effect["position"]
+	owner.add_child(bounce_effect_instance)

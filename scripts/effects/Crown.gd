@@ -16,7 +16,7 @@ func fade_out():
 	return false
 
 
-func set_color(color):
+func setup_color(color):
 	material.set_shader_param("targ_color", color)
 	$Particles.color_ramp = Effect.create_alpha_gradient(color, 0.7, 0)
 

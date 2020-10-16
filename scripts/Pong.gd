@@ -2,7 +2,7 @@ extends Node
 
 const score_victory_effect = preload("res://scenes/effects/ScoreVictoryEffect.tscn")
 const score_normal_effect = preload("res://scenes/effects/ScoreNormalEffect.tscn")
-const score_bounce_effect = preload("res://scenes/effects/ScoreBounceEffect.tscn")
+const bounce_wall_effect = preload("res://scenes/effects/BounceWallEffect.tscn")
 const crown_effect = preload("res://scenes/effects/Crown.tscn")
 
 const target: = 3
@@ -49,11 +49,11 @@ func reset_lock(body):
 func score_add(point):
 	var effect: = { "scene": score_normal_effect }
 	if point < 0:
-		effect["rotation_degrees"] = 0
+		effect["rotation"] = 0
 		effect["color_ramp"] = $Paddles/PaddleAdriel.color
 		effect["position"] = Vector2(0, $Ball.position.y)
 	else:
-		effect["rotation_degrees"] = 180
+		effect["rotation"] = 180
 		effect["color_ramp"] = $Paddles/PaddleLuc.color
 		effect["position"] = Vector2(get_tree().root.size.x, $Ball.position.y)
 
@@ -63,8 +63,10 @@ func score_add(point):
 		set_display()
 		if abs(score) >= target:
 			effect["scene"] = score_victory_effect
-	else:
-		effect["scene"] = score_bounce_effect
+	else :
+		effect["scene"] = bounce_wall_effect
+		effect["color_ramp"]=$Ball.color
+	
 	spawn_score_effect(effect)
 
 
@@ -79,14 +81,14 @@ func set_display():
 
 func spawn_crown():
 	var crown_effect_instance = crown_effect.instance()
-	crown_effect_instance.set_color(($Paddles/PaddleAdriel if score > 0
+	crown_effect_instance.setup_color(($Paddles/PaddleAdriel if score > 0
 									else $Paddles/PaddleLuc).color)
 	add_child(crown_effect_instance)
 
 
 func spawn_score_effect(effect):
 	var score_effect_instance = effect["scene"].instance()
-	score_effect_instance.rotation_degrees = effect["rotation_degrees"]
+	score_effect_instance.rotation_degrees = effect["rotation"]
 	score_effect_instance.setup_color_ramps(effect["color_ramp"])
 	score_effect_instance.position = effect["position"]
 	add_child(score_effect_instance)

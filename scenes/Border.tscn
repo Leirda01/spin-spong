@@ -8,26 +8,28 @@ extents = Vector2( 4, 128 )
 
 [node name="Border" type="Node2D"]
 
-[node name="BorderWall" type="StaticBody2D" parent="."]
+[node name="BorderWalls" type="StaticBody2D" parent="." groups=[
+"BorderWalls",
+]]
 collision_layer = 4
 collision_mask = 9
 
-[node name="WallTop" type="CollisionShape2D" parent="BorderWall"]
+[node name="WallTop" type="CollisionShape2D" parent="BorderWalls"]
 position = Vector2( 227, -4 )
 shape = SubResource( 1 )
 
-[node name="WallBottom" type="CollisionShape2D" parent="BorderWall"]
+[node name="WallBottom" type="CollisionShape2D" parent="BorderWalls"]
 position = Vector2( 227, 260 )
 shape = SubResource( 1 )
 
-[node name="BorderGoal" type="StaticBody2D" parent="."]
+[node name="BorderGoals" type="StaticBody2D" parent="."]
 collision_layer = 4
 collision_mask = 9
 
-[node name="GoalLeft" type="CollisionShape2D" parent="BorderGoal"]
+[node name="GoalLeft" type="CollisionShape2D" parent="BorderGoals"]
 position = Vector2( -4, 128 )
 shape = SubResource( 2 )
 
-[node name="GoalRight" type="CollisionShape2D" parent="BorderGoal"]
+[node name="GoalRight" type="CollisionShape2D" parent="BorderGoals"]
 position = Vector2( 458, 128 )
 shape = SubResource( 2 )

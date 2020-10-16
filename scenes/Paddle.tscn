@@ -7,7 +7,9 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 3.98442, 33.9185 )
 
-[node name="Paddle" type="RigidBody2D"]
+[node name="Paddle" type="RigidBody2D" groups=[
+"Paddles",
+]]
 material = ExtResource( 1 )
 collision_layer = 2
 collision_mask = 8
