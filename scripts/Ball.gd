@@ -19,10 +19,6 @@ func _ready():
 
 
 func _integrate_forces(state):
-	if linear_velocity.normalized().dot(Vector2.UP) > 0.8:
-		linear_velocity = Vector2.UP
-	if linear_velocity.normalized().dot(Vector2.DOWN) > 0.8:
-		linear_velocity = Vector2.DOWN
 	linear_velocity = linear_velocity.normalized() * speed
 	
 	if state.get_contact_count() > 0 :
@@ -34,6 +30,17 @@ func _integrate_forces(state):
 		if !effect.empty() :
 			effect["position"] = state.get_contact_local_position(0)
 			spawn_bounce_effect(effect)
+
+
+func _on_paddle_bounce(body):
+	if not body.name == "Paddle":
+		return
+	if linear_velocity.normalized().dot(Vector2.UP) > 0.8:
+		linear_velocity = Vector2.UP
+	if linear_velocity.normalized().dot(Vector2.DOWN) > 0.8:
+		linear_velocity = Vector2.DOWN
+	linear_velocity = linear_velocity.normalized() * speed
+
 
 func launch():
 	linear_velocity += Vector2.ZERO

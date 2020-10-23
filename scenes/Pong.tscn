@@ -67,3 +67,4 @@ z_index = -1
 [connection signal="body_entered" from="ScoreHandlers/ScoreAdriel" to="." method="luc_touched"]
 [connection signal="body_entered" from="ScoreHandlers/ScoreLuc" to="." method="adriel_touched"]
 [connection signal="body_entered" from="ScoreHandlers/ScoreLock" to="." method="reset_lock"]
+[connection signal="body_entered" from="Ball" to="Ball" method="_on_paddle_bounce"]
