@@ -7,7 +7,7 @@ export var max_speed: int
 export(Color) var color
 
 var speed
-
+const SMASH = 6.0
 
 func _ready():
 	speed = base_speed
@@ -15,31 +15,35 @@ func _ready():
 
 	linear_velocity = Vector2.LEFT
 	self.stop()
-	self.custom_integrator = true
 
 
 func _integrate_forces(state):
 	linear_velocity = linear_velocity.normalized() * speed
-	
-	if state.get_contact_count() > 0 :
-		var effect: = {}
+
+	if state.get_contact_count() > 0:
+		var effect := {}
 		if state.get_contact_collider_object(0).is_in_group("BorderWalls"):
-			effect["scene"] = bounce_wall_effect
-			effect["rotation"] = rad2deg(state.get_contact_local_normal(0).angle())
-			effect["color_ramp"] = color
-		if !effect.empty() :
-			effect["position"] = state.get_contact_local_position(0)
-			spawn_bounce_effect(effect)
+			effect = {
+				"scene": bounce_wall_effect,
+				"rotation": rad2deg(state.get_contact_local_normal(0).angle()),
+				"color_ramp": color,
+				"position": state.get_contact_local_position(0),
+			}
+		spawn_bounce_effect(effect)
 
 
-func _on_paddle_bounce(body):
-	if not body.name == "Paddle":
+func _on_paddle_bounce(paddle):
+	if paddle.name != "Paddle":
 		return
+
+	# Set ball speed depending on paddle rotation speed
+	speed = max_speed if abs(paddle.angular_velocity) >= SMASH else base_speed
+
+	# Stop the ball from being stuck almost vertically
 	if linear_velocity.normalized().dot(Vector2.UP) > 0.8:
 		linear_velocity = Vector2.UP
 	if linear_velocity.normalized().dot(Vector2.DOWN) > 0.8:
 		linear_velocity = Vector2.DOWN
-	linear_velocity = linear_velocity.normalized() * speed
 
 
 func launch():
@@ -56,6 +60,7 @@ func increase_speed():
 
 
 func spawn_bounce_effect(effect):
+	if effect.empty(): return
 	var bounce_effect_instance = effect["scene"].instance()
 	bounce_effect_instance.setup_color_ramps(effect["color_ramp"])
 	bounce_effect_instance.rotation_degrees = effect["rotation"]

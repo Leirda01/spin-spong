@@ -51,12 +51,12 @@ input_pickable = false
 position = Vector2( 227, 128 )
 scale = Vector2( 130, 128 )
 input_pickable = false
+linear_damp = 10.0
 
 [node name="Ball" parent="." instance=ExtResource( 1 )]
 material = SubResource( 1 )
 position = Vector2( 227, 128 )
 z_index = 10
-max_speed = 200
 
 [node name="Border" parent="." instance=ExtResource( 2 )]
 
@@ -67,4 +67,3 @@ z_index = -1
 [connection signal="body_entered" from="ScoreHandlers/ScoreAdriel" to="." method="luc_touched"]
 [connection signal="body_entered" from="ScoreHandlers/ScoreLuc" to="." method="adriel_touched"]
 [connection signal="body_entered" from="ScoreHandlers/ScoreLock" to="." method="reset_lock"]
-[connection signal="body_entered" from="Ball" to="Ball" method="_on_paddle_bounce"]
