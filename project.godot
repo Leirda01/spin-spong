@@ -33,6 +33,7 @@ default_bus_layout=""
 
 Effect="*res://scripts/effects/Effect.gd"
 Signal="*res://scripts/Signal.gd"
+Resolution="*res://scripts/Resolution.gd"
 
 [display]
 
