@@ -5,7 +5,7 @@
   * [ ] Ball can get stuck out of range vertically
   * [ ] Manage ball speed
   * [?] Change RigidBody2D to Kinematic to gain a finer control over physics
-* [ ] Modify viewport to get proper clear color
+* [x] Modify viewport to get proper clear color
 
 ## Adriel
 
