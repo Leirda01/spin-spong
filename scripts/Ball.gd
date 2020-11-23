@@ -4,10 +4,12 @@ const bounce_wall_effect = preload("res://scenes/effects/BounceWallEffect.tscn")
 
 export var base_speed: int
 export var max_speed: int
+export var smash := 6.0
+export var needed_rotation := 0.8
 export(Color) var color
 
 var speed
-const SMASH = 6.0
+
 
 func _ready():
 	speed = base_speed
@@ -35,18 +37,21 @@ func _integrate_forces(state):
 
 
 func _on_paddle_bounce(paddle):
-	if paddle.name != "Paddle":
-		return
+	if paddle.name != "Paddle": return
 
-	# Set ball speed depending on paddle rotation speed
-	speed = max_speed if abs(paddle.angular_velocity) >= SMASH else base_speed
+	# Set ball maximum speed depending on paddle rotation speed
+	speed = max_speed if abs(paddle.angular_velocity) >= smash else base_speed
 
-	# Stop the ball from being stuck almost vertically
-	if linear_velocity.normalized().dot(Vector2.UP) > 0.8:
-		linear_velocity = Vector2.UP
-	if linear_velocity.normalized().dot(Vector2.DOWN) > 0.8:
-		linear_velocity = Vector2.DOWN
+	if linear_velocity.normalized().dot(Vector2.UP) > needed_rotation:
+		linear_velocity = Vector2.UP * base_speed
+	elif linear_velocity.normalized().dot(Vector2.DOWN) > needed_rotation:
+		linear_velocity = Vector2.DOWN * base_speed
 
+	var result := Physics2DTestMotionResult.new()
+	if test_motion(linear_velocity, false, 1, result):
+		if result.collider.name == "Paddle":
+			print("nope! :P")
+			linear_velocity = Vector2.LEFT * base_speed
 
 func launch():
 	linear_velocity += Vector2.ZERO
