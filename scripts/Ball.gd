@@ -18,7 +18,9 @@ func _ready():
 
 
 func _integrate_forces(state):
-	linear_velocity = linear_velocity.normalized() * speed
+	if linear_velocity.length() < base_speed:
+		linear_velocity = linear_velocity.normalized() * base_speed
+	else: linear_velocity = linear_velocity.clamped(speed)
 
 	if state.get_contact_count() > 0:
 		var effect := {}
