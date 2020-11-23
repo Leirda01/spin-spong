@@ -1,11 +1,15 @@
 extends Node2D
 
+
+var color_ramp setget setup_color_ramps
+
+
 func _ready():
 	for particle in [$Rhombuses, $Scatter, $Flash, $FlashLine, $Ripple]:
 		particle.emitting = true
 
 
-func setup_color_ramps(color):
+func setup_color_ramps(color: Color):
 	$Rhombuses.color_ramp = Effect.create_alpha_gradient(color, 1, 0.1)
 	$Scatter.color_ramp = Effect.create_alpha_gradient(color, 0.8, 0.6)
 	$Flash.color_ramp = Effect.create_alpha_gradient(color.inverted(), 1, 0)

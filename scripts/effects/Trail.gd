@@ -1,5 +1,6 @@
 extends Line2D
 
+
 export(int) var trail_length
 
 

@@ -33,7 +33,7 @@ func _integrate_forces(state):
 			effect["color_ramp"] = color
 		if !effect.empty() :
 			effect["position"] = state.get_contact_local_position(0)
-			spawn_bounce_effect(effect)
+			owner.add_child(Effect.create_effect(effect))
 
 func launch():
 	linear_velocity += Vector2.ZERO
@@ -46,11 +46,3 @@ func stop():
 func increase_speed():
 	if speed < max_speed:
 		speed += base_speed
-
-
-func spawn_bounce_effect(effect):
-	var bounce_effect_instance = effect["scene"].instance()
-	bounce_effect_instance.setup_color_ramps(effect["color_ramp"])
-	bounce_effect_instance.rotation_degrees = effect["rotation"]
-	bounce_effect_instance.position = effect["position"]
-	owner.add_child(bounce_effect_instance)

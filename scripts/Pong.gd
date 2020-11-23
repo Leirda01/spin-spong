@@ -44,7 +44,11 @@ func reset_lock(body):
 	if body.name == "Ball":
 		locked = false
 		if abs(score) >= target:
-			spawn_crown()
+			add_child(Effect.create_effect({
+				"scene": crown_effect,
+				"color_ramp": (
+					$Paddles/PaddleAdriel if score > 0 else $Paddles/PaddleLuc).color
+			}))
 			score = 0
 			$Ball.stop()
 
@@ -68,9 +72,9 @@ func score_add(point):
 			effect["scene"] = score_victory_effect
 	else :
 		effect["scene"] = bounce_wall_effect
-		effect["color_ramp"]=$Ball.color
+		effect["color_ramp"] = $Ball.color
 	
-	spawn_score_effect(effect)
+	add_child(Effect.create_effect(effect))
 
 
 func start_game():
@@ -81,18 +85,3 @@ func start_game():
 func set_display(direction : int):
 	$RetroBackground.set_background(float(score) / float(target))
 	$RetroBackground.update_markers (score + target, direction)
-
-
-func spawn_crown():
-	var crown_effect_instance = crown_effect.instance()
-	crown_effect_instance.setup_color(($Paddles/PaddleAdriel if score > 0
-									else $Paddles/PaddleLuc).color)
-	add_child(crown_effect_instance)
-
-
-func spawn_score_effect(effect):
-	var score_effect_instance = effect["scene"].instance()
-	score_effect_instance.rotation_degrees = effect["rotation"]
-	score_effect_instance.setup_color_ramps(effect["color_ramp"])
-	score_effect_instance.position = effect["position"]
-	add_child(score_effect_instance)
