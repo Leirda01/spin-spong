@@ -5,7 +5,6 @@
 [ext_resource path="res://shaders/ShaderColor.material" type="Material" id=3]
 [ext_resource path="res://sprites/effects/particles/RhombusPart3a.png" type="Texture" id=4]
 
-
 [sub_resource type="Animation" id=1]
 resource_name = "Flash"
 length = 0.4

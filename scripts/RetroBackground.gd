@@ -5,19 +5,15 @@ export var speed := 6.0
 export var luminosity := 0.4
 
 
-var target = {
-	"line": Vector2.ZERO,
-	"gradient": Vector2.ZERO,
-}
-var color = {
-	"left": Color(),
-	"right": Color(),
-}
+var target_line := Vector2.ZERO
+var target_gradient := Vector2.ZERO
+var color_left: Color
+var color_right: Color
 
 
-func setup(color_left, color_right):
-	color["left"] = color_left
-	color["right"] = color_right
+func setup(col_left, col_right):
+	color_left = col_left
+	color_right = col_right
 	var gradient = Gradient.new()
 	var filter = Color(luminosity, luminosity, luminosity, 1)
 	gradient.add_point(0, color_left * filter)
@@ -28,26 +24,26 @@ func setup(color_left, color_right):
 
 func _process(delta):
 	$Gradient.position = \
-		$Gradient.position.linear_interpolate(target["gradient"], delta * speed)
+		$Gradient.position.linear_interpolate(target_gradient, delta * speed)
 	$Lines.position = \
-		$Lines.position.linear_interpolate(target["line"], delta * speed)
+		$Lines.position.linear_interpolate(target_line, delta * speed)
 
 
 func set_background(coeff: float):
-	target["gradient"] = Vector2(coeff * get_tree().root.size.x / 2, 0)
-	target["line"] = Vector2(coeff * 192, 0) # multiples of 96
+	target_gradient = Vector2(coeff * get_tree().root.size.x / 2, 0)
+	target_line = Vector2(coeff * 192, 0) # multiples of 96
 
 
 func update_markers(score: int, dir: int):
-	var left_strikes = true if dir == -1 else false if dir == 1 else null
+	var right_strikes = true if dir == -1 else false if dir == 1 else null
 
 	for marker in $ScoreMarkers.get_children():
-		var left_side: bool = marker.name.to_int() <= score * 2
+		var is_on_left_side: bool = marker.name.to_int() <= score * 2
 
 		marker.material.set_shader_param(
 			"targ_color",
-			color["left" if left_side else "right"]
+			color_left if is_on_left_side else color_right
 		)
 
-		if left_strikes != null and int(left_side) ^ int(left_strikes):
+		if right_strikes != null and int(is_on_left_side) ^ int(right_strikes):
 				marker.get_node("FlashPlayer").play("Flash")

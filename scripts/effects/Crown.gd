@@ -3,6 +3,7 @@ extends AnimatedSprite
 
 var color_ramp setget setup_color
 
+
 func _ready():
 	frame = 0
 	play("fade-in")

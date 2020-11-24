@@ -1,5 +1,6 @@
 extends Node
 
+
 func _ready() -> void:
 	randomize()
 
@@ -8,7 +9,7 @@ static func screen_freeze(duration: int) -> void:
 	OS.delay_msec(duration)
 
 
-static func create_alpha_gradient(color := Color(0), start_alpha := 0.0, end_alpha := 0.0) -> Gradient:
+static func create_alpha_gradient(color := Color.cyan, start_alpha := 0.0, end_alpha := 1.0) -> Gradient:
 	var gradient := Gradient.new()
 	gradient.add_point(0, color * Color(1, 1, 1, start_alpha))
 	gradient.add_point(.9999, color * Color(1, 1, 1, end_alpha))
