@@ -24,7 +24,7 @@ func _integrate_forces(state):
 	if linear_velocity.normalized().dot(Vector2.DOWN) > 0.8:
 		linear_velocity = Vector2.DOWN
 	linear_velocity = linear_velocity.normalized() * speed
-	
+
 	if state.get_contact_count() > 0 :
 		var effect: = {}
 		if state.get_contact_collider_object(0).is_in_group("BorderWalls"):

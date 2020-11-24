@@ -73,7 +73,7 @@ func score_add(point):
 	else :
 		effect["scene"] = bounce_wall_effect
 		effect["color_ramp"] = $Ball.color
-	
+
 	add_child(Effect.create_effect(effect))
 
 
