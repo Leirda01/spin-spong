@@ -2,7 +2,7 @@
 
 * [ ] Rework physics with builtin functions or in other more viable ways
   * [ ] (50%) Ball can glitch through objects and out of the play-field's boundaries
-  * [ ] Ball can get stuck out of range vertically
+  * [x] Ball can get stuck out of range vertically
   * [ ] Manage ball speed
   * [?] Change RigidBody2D to Kinematic to gain a finer control over physics
 * [x] Modify viewport to get proper clear color

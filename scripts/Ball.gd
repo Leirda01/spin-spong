@@ -6,7 +6,7 @@ export var base_speed: int
 export var max_speed: int
 export(Color) var color
 
-const MINDIR := 0.3 # Minimal direction between 0.0 and 1.0
+const MINDIR := 0.4 # Minimal direction between 0.0 and 1.0
 var speed
 
 
@@ -21,11 +21,12 @@ func _ready():
 func _integrate_forces(state):
 	var direction := linear_velocity.normalized()
 	if abs(direction.dot(Vector2.RIGHT)) <= MINDIR:
-		linear_velocity = (Vector2.UP if direction.y < 0 else Vector2.DOWN)
+		linear_velocity = Vector2(0, sign(direction.y)).rotated(
+			sign(direction.x) * MINDIR * PI / 2)
 	linear_velocity = linear_velocity.normalized() * speed
 
 	if state.get_contact_count() > 0 :
-		var effect: = {}
+		var effect := {}
 		if state.get_contact_collider_object(0).is_in_group("BorderWalls"):
 			effect["scene"] = bounce_wall_effect
 			effect["rotation"] = rad2deg(state.get_contact_local_normal(0).angle())
