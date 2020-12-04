@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-const bounce_wall_effect = preload("res://scenes/effects/BounceWallEffect.tscn")
+const bounce_wall := preload("res://scenes/effects/BounceWall.tscn")
 
 export var base_speed: int
 export var max_speed: int
@@ -28,7 +28,7 @@ func _integrate_forces(state):
 	if state.get_contact_count() > 0 :
 		var effect := {}
 		if state.get_contact_collider_object(0).is_in_group("BorderWalls"):
-			effect["scene"] = bounce_wall_effect
+			effect["scene"] = bounce_wall
 			effect["rotation"] = rad2deg(state.get_contact_local_normal(0).angle())
 			effect["color_ramp"] = color
 		if !effect.empty() :

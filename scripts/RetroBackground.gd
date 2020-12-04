@@ -11,9 +11,9 @@ var color_left: Color
 var color_right: Color
 
 
-func setup(col_left, col_right):
-	color_left = col_left
-	color_right = col_right
+func setup(left: Color, right: Color):
+	color_left = left
+	color_right = right
 	var gradient = Gradient.new()
 	var filter = Color(luminosity, luminosity, luminosity, 1)
 	gradient.add_point(0, color_left * filter)
@@ -35,6 +35,7 @@ func set_background(coeff: float):
 
 
 func update_markers(score: int, dir: int):
+	# warning-ignore:incompatible_ternary
 	var right_strikes = true if dir == -1 else false if dir == 1 else null
 
 	for marker in $ScoreMarkers.get_children():
