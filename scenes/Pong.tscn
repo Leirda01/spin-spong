@@ -56,7 +56,7 @@ input_pickable = false
 material = SubResource( 1 )
 position = Vector2( 227, 128 )
 z_index = 10
-max_speed = 200
+max_speed = 375
 
 [node name="Border" parent="." instance=ExtResource( 2 )]
 

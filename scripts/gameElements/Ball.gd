@@ -2,28 +2,29 @@ extends RigidBody2D
 
 const bounce_wall := preload("res://scenes/effects/BounceWall.tscn")
 
-export var base_speed: int
-export var max_speed: int
 export(Color) var color
+export var base_speed := 275
+export var max_speed := 600
+export var minimal_direction := 0.4 # between 0.0 and 1.0
+export var smash := 6.0
 
-const MINDIR := 0.4 # Minimal direction between 0.0 and 1.0
-var speed
+var speed: float
+var direction: Vector2
 
 
 func _ready():
 	speed = base_speed
+	direction = Vector2.LEFT
+	linear_velocity = direction
+
 	material.set_shader_param("targ_color", color)
-	linear_velocity = Vector2.LEFT
+
 	self.stop()
-	self.custom_integrator = true
 
 
 func _integrate_forces(state):
-	var direction := linear_velocity.normalized()
-	if abs(direction.dot(Vector2.RIGHT)) <= MINDIR:
-		linear_velocity = Vector2(0, sign(direction.y)).rotated(
-			sign(direction.x) * MINDIR * PI / 2)
-	linear_velocity = linear_velocity.normalized() * speed
+	direction = linear_velocity.normalized()
+	linear_velocity = direction * speed
 
 	if state.get_contact_count() > 0 :
 		var effect := {}
@@ -34,6 +35,18 @@ func _integrate_forces(state):
 		if !effect.empty() :
 			effect["position"] = state.get_contact_local_position(0)
 			owner.add_child(Effect.create_effect(effect))
+
+
+func _on_paddle_bounce(paddle):
+	if paddle.name != "Paddle": return
+
+	# Set ball maximum speed depending on paddle rotation speed
+	speed = max_speed if abs(paddle.angular_velocity) >= smash else base_speed
+
+	if abs(direction.dot(Vector2.RIGHT)) <= minimal_direction:
+		linear_velocity = Vector2(0, sign(direction.y)).rotated(
+			sign(direction.x) * minimal_direction * PI / 2
+		)
 
 
 func launch():
