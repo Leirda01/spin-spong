@@ -3,7 +3,6 @@
 * [ ] Rework physics with builtin functions or in other more viable ways
   * [ ] (50%) Ball can glitch through objects and out of the play-field's boundaries
   * [x] Ball can get stuck out of range vertically
-  * [ ] Manage ball speed
   * [?] Change RigidBody2D to Kinematic to gain a finer control over physics
 * [x] Modify viewport to get proper clear color
 
@@ -25,6 +24,8 @@
   * [ ] Multiple speeds for the ball: fast when the paddle had momentum (smash) and slow/normal otherwise
 * [x] Rename 'session' from branches' names -> {luc, adriel}
 * [x] Reorganize/clean up file structure ("shaders" and "materials")
+* [ ] Implement one single sprite for Crown animation instead of 70 different ones
+* [ ] Implement dummy particles  for "Ball" - "Paddle" impact (first, during, last)
 
 ## Luc
 
@@ -44,3 +45,4 @@
   * [x] victory impact
 * [x] Translate this TO-DO list to English (I hate you Diana)
 * [x] Revamp score ui
+* [ ] Controls ui - What happens when user launch the game for the first time?
