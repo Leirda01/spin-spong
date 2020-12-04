@@ -1,32 +1,32 @@
 [gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://sprites/effects/particles/RhombusFlash.png" type="Texture" id=1]
-[ext_resource path="res://sprites/effects/particles/RhombusPart1a.png" type="Texture" id=2]
-[ext_resource path="res://shaders/BlendAdd.tres" type="Material" id=3]
-[ext_resource path="res://scripts/effects/ScoreVictoryEffect.gd" type="Script" id=4]
+[ext_resource path="res://shaders/BlendAdd.tres" type="Material" id=1]
+[ext_resource path="res://sprites/effects/particles/RhombusFlash.png" type="Texture" id=2]
+[ext_resource path="res://sprites/effects/particles/RhombusPart1a.png" type="Texture" id=3]
+[ext_resource path="res://scripts/effects/ScoreVictory.gd" type="Script" id=4]
+[ext_resource path="res://sprites/effects/particles/SquarePart2a.png" type="Texture" id=5]
 [ext_resource path="res://sprites/effects/particles/RhombusFlashLine.png" type="Texture" id=6]
-[ext_resource path="res://sprites/effects/particles/SquarePart2a.png" type="Texture" id=7]
-[ext_resource path="res://sprites/effects/particles/RhombusFlashLineThin.png" type="Texture" id=8]
+[ext_resource path="res://sprites/effects/particles/RhombusFlashLineThin.png" type="Texture" id=7]
 
-[sub_resource type="Curve" id=5]
+[sub_resource type="Curve" id=1]
 max_value = 600.0
 _data = [ Vector2( 0, 1 ), 0.0, -12.6667, 0, 1, Vector2( 0.0789474, 0 ), -12.6667, 41799.9, 1, 1, Vector2( 0.0933014, 600 ), 41799.9, 0.0, 1, 0, Vector2( 1, 600 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="Curve" id=6]
+[sub_resource type="Curve" id=2]
 max_value = 50.0
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.200957, 0 ), 0.0, 1900.0, 0, 1, Vector2( 0.227273, 50 ), 1900.0, 0.0, 1, 0, Vector2( 1, 50 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="Curve" id=4]
+[sub_resource type="Curve" id=3]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 1, Vector2( 0.799043, 1 ), 0.0, -4.97619, 1, 1, Vector2( 1, 0 ), -4.97619, 0.0, 1, 0 ]
 
-[sub_resource type="CanvasItemMaterial" id=1]
+[sub_resource type="CanvasItemMaterial" id=4]
 blend_mode = 1
 
-[sub_resource type="Curve" id=2]
+[sub_resource type="Curve" id=5]
 max_value = 1.5
 _data = [ Vector2( 0, 0.698973 ), 0.0, 0.0, 0, 0, Vector2( 1, 1.2059 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="Curve" id=3]
+[sub_resource type="Curve" id=6]
 max_value = 6.0
 _data = [ Vector2( 0, 0.746505 ), 0.0, 0.0, 0, 0, Vector2( 0.433014, 2.54847 ), 0.0, 0.0, 0, 0, Vector2( 0.614833, 2.97704 ), 2.35714, 0.0, 1, 0, Vector2( 0.691388, 6 ), 0.0, 0.0, 0, 0, Vector2( 1, 6 ), 0.0, 0.0, 0, 0 ]
 
@@ -52,7 +52,7 @@ amount = 10
 lifetime = 0.4
 one_shot = true
 preprocess = 0.1
-texture = ExtResource( 7 )
+texture = ExtResource( 5 )
 emission_shape = 2
 emission_rect_extents = Vector2( 40, 12 )
 spread = 0.0
@@ -61,19 +61,19 @@ initial_velocity = 10.0
 initial_velocity_random = 0.2
 angular_velocity_random = 1.0
 linear_accel = 80.0
-linear_accel_curve = SubResource( 5 )
-radial_accel_curve = SubResource( 6 )
+linear_accel_curve = SubResource( 1 )
+radial_accel_curve = SubResource( 2 )
 scale_amount = 0.5
-scale_amount_curve = SubResource( 4 )
+scale_amount_curve = SubResource( 3 )
 
 [node name="Rhombuses" type="CPUParticles2D" parent="."]
-material = ExtResource( 3 )
+material = ExtResource( 1 )
 emitting = false
 amount = 70
 lifetime = 0.7
 one_shot = true
 preprocess = 0.6
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 emission_shape = 3
 emission_points = PoolVector2Array( 1, -32, 1, -26, 1, -20, 1, -11, 1, -8, 1, -5, 1, -2, 1, 0, 1, 3, 1, 6, 1, 9, 1, 18, 1, 24, 1, 30, 4, -17, 4, -8, 4, -5, 4, 0, 4, 3, 4, 6, 4, 15, 7, -26, 7, -20, 7, -14, 7, -5, 7, -2, 7, 3, 7, 12, 7, 18, 7, 24, 10, -11, 10, 0, 10, 9, 13, -20, 13, -14, 13, -8, 13, 6, 13, 12, 13, 18, 16, -5, 16, 3, 19, -14, 19, -8, 19, 0, 19, 6, 19, 12, 25, -8, 25, -2, 25, 6, 31, 0 )
 emission_colors = PoolColorArray(  )
@@ -85,27 +85,27 @@ radial_accel = 120.0
 radial_accel_random = 0.3
 
 [node name="Flash" type="CPUParticles2D" parent="."]
-material = SubResource( 1 )
+material = SubResource( 4 )
 emitting = false
 amount = 1
 lifetime = 0.7
 one_shot = true
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 gravity = Vector2( 0, 0 )
-scale_amount_curve = SubResource( 2 )
+scale_amount_curve = SubResource( 5 )
 
 [node name="FlashLine" type="CPUParticles2D" parent="."]
-material = SubResource( 1 )
+material = SubResource( 4 )
 emitting = false
 amount = 1
 lifetime = 0.7
 one_shot = true
-texture = ExtResource( 8 )
+texture = ExtResource( 7 )
 gravity = Vector2( 0, 0 )
-scale_amount_curve = SubResource( 2 )
+scale_amount_curve = SubResource( 5 )
 
 [node name="Ripple" type="CPUParticles2D" parent="."]
-material = SubResource( 1 )
+material = SubResource( 4 )
 z_index = -3
 z_as_relative = false
 emitting = false
@@ -114,6 +114,6 @@ lifetime = 0.4
 one_shot = true
 texture = ExtResource( 6 )
 gravity = Vector2( 0, 0 )
-scale_amount_curve = SubResource( 3 )
+scale_amount_curve = SubResource( 6 )
 [connection signal="timeout" from="ParticlesDeletion" to="." method="_on_ParticlesDeletion_timeout"]
 [connection signal="timeout" from="JuiceTrigger" to="." method="_on_JuiceTrigger_timeout"]

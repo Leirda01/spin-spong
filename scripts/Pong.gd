@@ -1,17 +1,20 @@
 extends Node
 
-const score_victory_effect = preload("res://scenes/effects/ScoreVictoryEffect.tscn")
-const score_normal_effect = preload("res://scenes/effects/ScoreNormalEffect.tscn")
-const bounce_wall_effect = preload("res://scenes/effects/BounceWallEffect.tscn")
-const crown_effect = preload("res://scenes/effects/Crown.tscn")
+
+const score_victory := preload("res://scenes/effects/ScoreVictory.tscn")
+const score_normal := preload("res://scenes/effects/ScoreNormal.tscn")
+const bounce_wall := preload("res://scenes/effects/BounceWall.tscn")
+const crown := preload("res://scenes/effects/Crown.tscn")
 
 const target: = 3
 var score: = 0
 var locked: = true
 
+
 func _ready():
 	$RetroBackground.setup($Paddles/PaddleAdriel.color, $Paddles/PaddleLuc.color)
 	set_display(0)
+
 
 func _process(_delta):
 	if Input.is_action_just_pressed("restart"):
@@ -45,16 +48,17 @@ func reset_lock(body):
 		locked = false
 		if abs(score) >= target:
 			add_child(Effect.create_effect({
-				"scene": crown_effect,
+				"scene": crown,
 				"color_ramp": (
-					$Paddles/PaddleAdriel if score > 0 else $Paddles/PaddleLuc).color
+					$Paddles/PaddleAdriel if score > 0 else $Paddles/PaddleLuc
+				).color
 			}))
 			score = 0
 			$Ball.stop()
 
 
 func score_add(point):
-	var effect: = { "scene": score_normal_effect }
+	var effect: = { "scene": score_normal }
 	if point < 0:
 		effect["rotation"] = 0
 		effect["color_ramp"] = $Paddles/PaddleAdriel.color
@@ -69,9 +73,9 @@ func score_add(point):
 		locked = true
 		set_display(point)
 		if abs(score) >= target:
-			effect["scene"] = score_victory_effect
+			effect["scene"] = score_victory
 	else :
-		effect["scene"] = bounce_wall_effect
+		effect["scene"] = bounce_wall
 		effect["color_ramp"] = $Ball.color
 
 	add_child(Effect.create_effect(effect))
