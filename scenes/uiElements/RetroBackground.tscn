@@ -2,11 +2,13 @@
 
 [ext_resource path="res://sprites/background/background_overlay.png" type="Texture" id=1]
 [ext_resource path="res://sprites/background/BckLines2.png" type="Texture" id=2]
-[ext_resource path="res://scripts/RetroBackground.gd" type="Script" id=3]
+[ext_resource path="res://scripts/uiElements/RetroBackground.gd" type="Script" id=3]
 [ext_resource path="res://sprites/background/BckRhombus.png" type="Texture" id=4]
-[ext_resource path="res://scenes/ScoreMarker.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/uiElements/ScoreMarker.tscn" type="PackedScene" id=5]
 [ext_resource path="res://shaders/ShaderColor.shader" type="Shader" id=6]
 [ext_resource path="res://sprites/background/BckGrid.png" type="Texture" id=7]
+
+
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.153846 )

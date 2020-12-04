@@ -8,14 +8,9 @@
 
 config_version=4
 
-_global_script_classes=[ {
-"base": "",
-"class": "GitAPI",
-"language": "NativeScript",
-"path": "res://git_api.gdns"
-} ]
+_global_script_classes=[  ]
 _global_script_class_icons={
-"GitAPI": ""
+
 }
 
 [application]
@@ -32,8 +27,7 @@ default_bus_layout=""
 [autoload]
 
 Effect="*res://scripts/effects/Effect.gd"
-Signal="*res://scripts/Signal.gd"
-Resolution="*res://scripts/Resolution.gd"
+Resolution="*res://scripts/uiElements/Resolution.gd"
 
 [display]
 
@@ -45,7 +39,7 @@ window/stretch/mode="viewport"
 
 [gdnative]
 
-singletons=[ "res://git_api.gdnlib" ]
+singletons=[  ]
 
 [importer_defaults]
 
