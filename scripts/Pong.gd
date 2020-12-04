@@ -12,7 +12,10 @@ var locked: = true
 
 
 func _ready():
-	$RetroBackground.setup($Paddles/PaddleAdriel.color, $Paddles/PaddleLuc.color)
+	$RetroBackground.setup(
+		$Paddles/PaddleAdriel.color,
+		$Paddles/PaddleLuc.color
+	)
 	set_display(0)
 
 
@@ -23,7 +26,7 @@ func _process(_delta):
 		reset_lock($Ball)
 		score_add(1)
 		locked = false
-	if Input.is_action_just_pressed("decrease") and -score < target - 1:
+	if Input.is_action_just_pressed("decrease") and - score < target - 1:
 		reset_lock($Ball)
 		score_add(-1)
 		locked = false
