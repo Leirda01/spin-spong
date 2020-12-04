@@ -1,6 +1,9 @@
 extends Node
 
 
+signal screen_shake(duration, strength)
+
+
 func _ready() -> void:
 	randomize()
 

@@ -1,8 +1,10 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://scripts/Lock.gd" type="Script" id=1]
-[ext_resource path="res://scenes/Paddle.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/gameElements/Lock.gd" type="Script" id=1]
+[ext_resource path="res://scenes/gameElements/Paddle.tscn" type="PackedScene" id=2]
 [ext_resource path="res://shaders/ShaderColor.shader" type="Shader" id=3]
+
+
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 6.79037, 33.3199 )
