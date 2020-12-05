@@ -24,7 +24,7 @@
   * [ ] Multiple speeds for the ball: fast when the paddle had momentum (smash) and slow/normal otherwise
 * [x] Rename 'session' from branches' names -> {luc, adriel}
 * [x] Reorganize/clean up file structure ("shaders" and "materials")
-* [ ] Implement one single sprite for Crown animation instead of 70 different ones
+* [x] Implement one single sprite for Crown animation instead of 70 different ones
 * [ ] Implement dummy particles  for "Ball" - "Paddle" impact (first, during, last)
 
 ## Luc

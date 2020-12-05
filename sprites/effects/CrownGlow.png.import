@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/57.png-722e28e1f804c9778dfca697ce67300a.stex"
+path="res://.import/CrownGlow.png-1ea2464eb8bb90582ba93303817d3a65.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/effects/crown/57.png"
-dest_files=[ "res://.import/57.png-722e28e1f804c9778dfca697ce67300a.stex" ]
+source_file="res://sprites/effects/CrownGlow.png"
+dest_files=[ "res://.import/CrownGlow.png-1ea2464eb8bb90582ba93303817d3a65.stex" ]
 
 [params]
 
