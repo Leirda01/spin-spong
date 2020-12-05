@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/70.png-044a93f764a38ae15490afe2970a2aa7.stex"
+path="res://.import/Crown.png-ef1dfe89997e15b7328faebbfec674e8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/effects/crown/70.png"
-dest_files=[ "res://.import/70.png-044a93f764a38ae15490afe2970a2aa7.stex" ]
+source_file="res://sprites/effects/Crown.png"
+dest_files=[ "res://.import/Crown.png-ef1dfe89997e15b7328faebbfec674e8.stex" ]
 
 [params]
 
