@@ -70,7 +70,9 @@ func score_add(point):
 		effect["rotation"] = 180
 		effect["color_ramp"] = $Paddles/PaddleLuc.color
 		effect["position"] = Vector2(get_tree().root.size.x, $Ball.position.y)
-
+	
+	$Ball.update_score_speed(abs(float(score)/float(target)))
+	
 	if not locked:
 		score += point
 		locked = true
@@ -82,11 +84,13 @@ func score_add(point):
 		effect["color_ramp"] = $Ball.color
 
 	add_child(Effect.create_effect(effect))
+	
 
 
 func start_game():
 	$Ball.launch()
 	set_display(0)
+	
 
 
 func set_display(direction : int):

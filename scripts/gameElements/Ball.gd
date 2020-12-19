@@ -4,14 +4,16 @@ const bounce_wall := preload("res://scenes/effects/BounceWall.tscn")
 
 export var base_speed := 275
 export var max_speed := 375
+
 export(Color) var color
 
 const MINDIR := 0.4 # Minimal direction between 0.0 and 1.0
-var speed
+var speed: int setget update_speed
+var score_boost_speed := 0.0
 
 
 func _ready():
-	speed = base_speed
+	self.speed = base_speed
 	material.set_shader_param("targ_color", color)
 	linear_velocity = Vector2.LEFT
 	self.stop()
@@ -43,6 +45,9 @@ func stop():
 	set_sleeping(true)
 
 
-func increase_speed():
-	if speed < max_speed:
-		speed += base_speed
+func update_score_speed(multiplier: float):
+	score_boost_speed = multiplier
+
+
+func update_speed(s: int):
+	speed = base_speed + (s * score_boost_speed)
