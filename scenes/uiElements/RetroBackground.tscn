@@ -8,8 +8,6 @@
 [ext_resource path="res://shaders/ShaderColor.shader" type="Shader" id=6]
 [ext_resource path="res://sprites/background/BckGrid.png" type="Texture" id=7]
 
-
-
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.153846 )
 colors = PoolColorArray( 0.101961, 0.101961, 0.101961, 1, 0.101961, 0.101961, 0.101961, 1 )

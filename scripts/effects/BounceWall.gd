@@ -5,14 +5,14 @@ var color_ramp setget setup_color_ramps
 
 
 func _ready():
-	for particle in [$SquareLine, $SquareFlash, $Glow]:
+	for particle in [$SquareFlash, $SquareScatter, $Glow]:
 		particle.emitting = true
 
 
 func setup_color_ramps(color: Color):
-	$SquareLine.color_ramp = Effect.create_alpha_gradient(color, 0.7, 0)
-	$SquareFlash.self_modulate = color
-	$Glow.color_ramp = Effect.create_alpha_gradient(color, 0.3, 0)
+	$SquareFlash.color_ramp = Effect.create_alpha_gradient(color, 0.5, 0)
+	$SquareScatter.color_ramp = Effect.create_alpha_gradient(color, 1, 0)
+	$Glow.color_ramp = Effect.create_alpha_gradient(color, 0.5, 0)
 
 
 func _on_ParticlesDeletion_timeout():
@@ -20,5 +20,5 @@ func _on_ParticlesDeletion_timeout():
 
 
 func _on_JuiceTrigger_timeout():
-	Effect.emit_signal("screen_shake", 0.1, 1)
-	Effect.screen_freeze(20)
+	Effect.emit_signal("screen_shake", 0.05, 1)
+	Effect.screen_freeze(12)

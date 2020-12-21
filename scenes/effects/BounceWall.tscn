@@ -2,14 +2,13 @@
 
 [ext_resource path="res://scripts/effects/BounceWall.gd" type="Script" id=1]
 [ext_resource path="res://shaders/BlendAdd.tres" type="Material" id=2]
-[ext_resource path="res://sprites/effects/particles/SquarePart3a.png" type="Texture" id=3]
+[ext_resource path="res://sprites/effects/particles/RhombusPart1a.png" type="Texture" id=3]
 [ext_resource path="res://sprites/effects/RhombusGlow.png" type="Texture" id=4]
 [ext_resource path="res://sprites/effects/particles/SquarePart3b.png" type="Texture" id=5]
 
-[sub_resource type="Curve" id=1]
-min_value = 0.5
+[sub_resource type="Curve" id=3]
 max_value = 2.0
-_data = [ Vector2( 0, 0.5 ), 0.0, 0.903061, 0, 1, Vector2( 1, 1.40306 ), 0.903061, 0.0, 1, 0 ]
+_data = [ Vector2( 0, 0.706633 ), 0.0, 0.55102, 0, 1, Vector2( 1, 1.25765 ), 0.55102, 0.0, 1, 0 ]
 
 [sub_resource type="Curve" id=2]
 min_value = 1.0
@@ -31,27 +30,31 @@ wait_time = 0.017
 one_shot = true
 autostart = true
 
+[node name="SquareScatter" type="CPUParticles2D" parent="."]
+scale = Vector2( 1, 1 )
+emitting = false
+amount = 15
+lifetime = 0.5
+one_shot = true
+preprocess = 0.2
+explosiveness = 0.8
+texture = ExtResource( 3 )
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 50.0
+linear_accel = 0.2
+scale_amount = 0.5
+
 [node name="SquareFlash" type="CPUParticles2D" parent="."]
-material = ExtResource( 2 )
+rotation = 0.785398
 emitting = false
 amount = 1
-lifetime = 0.09
+lifetime = 0.1
 one_shot = true
 texture = ExtResource( 5 )
 spread = 0.0
 gravity = Vector2( 0, 0 )
-scale_amount = 0.5
-
-[node name="SquareLine" type="CPUParticles2D" parent="."]
-material = ExtResource( 2 )
-emitting = false
-amount = 1
-lifetime = 0.3
-one_shot = true
-texture = ExtResource( 3 )
-spread = 0.0
-gravity = Vector2( 0, 0 )
-scale_amount_curve = SubResource( 1 )
+scale_amount_curve = SubResource( 3 )
 
 [node name="Glow" type="CPUParticles2D" parent="."]
 material = ExtResource( 2 )
