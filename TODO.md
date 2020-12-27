@@ -38,9 +38,9 @@
 * [x] Polish
   * [x] vibrations
   * [x] freeze
-* [ ] Implement particle system
-  * [ ] (70%) "Ball" - "Border" impact
-  * [ ] (10%) "Ball" - "Paddle" impact
+* [x] Implement particle system
+  * [x] "Ball" - "Border" impact
+  * [x] "Ball" - "Paddle" impact
   * [x] goal impact
   * [x] victory impact
 * [x] Translate this TO-DO list to English (I hate you Diana)

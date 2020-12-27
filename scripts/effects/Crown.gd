@@ -14,7 +14,7 @@ func fade_out():
 		play("fade-out")
 		$Particles.emitting = false
 		$GlowBackground.visible = false
-		Effect.emit_signal("screen_shake",0.45,4)
+		Effect.emit_signal("screen_shake",0.45,3) #0.45 4
 		return true
 	return false
 
@@ -30,7 +30,7 @@ func _on_Crown_animation_finished():
 			play("wait")
 			$Particles.emitting = true
 			$GlowBackground.visible = true
-			Effect.emit_signal("screen_shake", 0.25, 5)
+			Effect.emit_signal("screen_shake", 0.25, 3) #0.25 5
 		"fade-out":
 			$ParticlesDeletion.start()
 

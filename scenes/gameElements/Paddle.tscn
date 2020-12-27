@@ -1,6 +1,6 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://sprites/Paddle.png" type="Texture" id=1]
+[ext_resource path="res://sprites/PaddleSheet.png" type="Texture" id=1]
 [ext_resource path="res://shaders/ShaderColor.material" type="Material" id=2]
 [ext_resource path="res://sprites/effects/PaddleGlow.png" type="Texture" id=3]
 [ext_resource path="res://sprites/effects/MaterializationFlash.png" type="Texture" id=4]
@@ -10,7 +10,7 @@ extents = Vector2( 3.98442, 33.9185 )
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 1 )
-region = Rect2( 0, 0, 18, 74 )
+region = Rect2( 0, 0, 36, 74 )
 
 [sub_resource type="AtlasTexture" id=3]
 flags = 4
@@ -18,8 +18,49 @@ atlas = ExtResource( 3 )
 region = Rect2( 0, 0, 64, 114 )
 
 [sub_resource type="Animation" id=4]
-resource_name = "Materialize"
+resource_name = "flash"
+length = 0.1
+step = 0.002
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 1, 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:region_rect")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Rect2( 0, 0, 36, 74 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("GlowBackground:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.00108495, 0.05 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.701961 ), Color( 1, 1, 1, 0.5 ) ]
+}
+
+[sub_resource type="Animation" id=5]
 length = 0.7
+step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:region_rect")
 tracks/0/interp = 1
@@ -30,7 +71,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1, 0.57 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Rect2( 0, 0, 18, 0 ), Rect2( 0, 0, 18, 0 ), Rect2( 0, 0, 18, 74 ) ]
+"values": [ Rect2( 0, 0, 36, 0 ), Rect2( 0, 0, 36, 0 ), Rect2( 0, 0, 36, 74 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("GlowBackground:region_rect")
@@ -92,6 +133,18 @@ tracks/5/keys = {
 "update": 0,
 "values": [ Vector2( 1, 0.3 ), Vector2( 1, 0.3 ), Vector2( 1, 1 ), Vector2( 0.7, 1 ), Vector2( 1, 0 ) ]
 }
+tracks/6/type = "value"
+tracks/6/path = NodePath("Sprite:frame")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
 
 [node name="Paddle" type="RigidBody2D" groups=[
 "Paddles",
@@ -115,11 +168,13 @@ use_parent_material = true
 texture = SubResource( 2 )
 centered = false
 offset = Vector2( -9, -37 )
+hframes = 2
+frame = 1
 region_enabled = true
-region_rect = Rect2( 0, 0, 18, 0 )
+region_rect = Rect2( 0, 0, 36, 74 )
 
 [node name="GlowBackground" type="Sprite" parent="."]
-self_modulate = Color( 1, 1, 1, 0 )
+self_modulate = Color( 1, 1, 1, 0.5 )
 use_parent_material = true
 z_index = -2
 z_as_relative = false
@@ -127,24 +182,20 @@ texture = SubResource( 3 )
 centered = false
 offset = Vector2( -32, -57 )
 region_enabled = true
-region_rect = Rect2( 0, 0, 64, 0 )
+region_rect = Rect2( 0, 0, 64, 114 )
 region_filter_clip = true
-
-[node name="GlowBackground2" type="Sprite" parent="."]
-visible = false
-self_modulate = Color( 1, 1, 1, 0.5 )
-use_parent_material = true
-z_index = -2
-z_as_relative = false
-texture = ExtResource( 3 )
 
 [node name="MaterializationFlash" type="Sprite" parent="."]
 visible = false
 use_parent_material = true
-position = Vector2( 0, -31 )
-scale = Vector2( 1, 0.3 )
+position = Vector2( 0, 31 )
+scale = Vector2( 1, 1e-05 )
 texture = ExtResource( 4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "Materialize"
-anims/Materialize = SubResource( 4 )
+autoplay = "materialize"
+anims/flash = SubResource( 4 )
+anims/materialize = SubResource( 5 )
+
+[node name="PaddleBounceCooldown" type="Timer" parent="."]
+one_shot = true

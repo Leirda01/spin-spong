@@ -1,13 +1,18 @@
 extends RigidBody2D
 
 const bounce_wall := preload("res://scenes/effects/BounceWall.tscn")
+const bounce_paddle := preload("res://scenes/effects/BouncePaddle.tscn")
 
 export var base_speed := 275
 export var max_speed := 375
 export(Color) var color
 
+
 const MINDIR := 0.4 # Minimal direction between 0.0 and 1.0
 var speed
+var paddle_bounce_effect_cooldown := 1 * (1/60)
+var paddle_bounce_effect_active := false
+
 
 
 func _ready():
@@ -26,13 +31,25 @@ func _integrate_forces(state):
 
 	if state.get_contact_count() > 0 :
 		var effect := {}
+		
 		if state.get_contact_collider_object(0).is_in_group("BorderWalls"):
 			effect["scene"] = bounce_wall
-			effect["rotation"] = rad2deg(state.get_contact_local_normal(0).angle())
 			effect["color_ramp"] = color
+		
+		elif state.get_contact_collider_object(0).is_in_group("Paddles"):
+			if !paddle_bounce_effect_active:
+				var paddle_lock = state.get_contact_collider_object(0).owner
+				paddle_bounce_effect_active = true
+				paddle_lock.flash()
+				effect["scene"] = bounce_paddle
+				effect["color_ramp"] = paddle_lock.color
+			$PaddleBounceEffectTimer.start(paddle_bounce_effect_cooldown)
+		
 		if !effect.empty() :
 			effect["position"] = state.get_contact_local_position(0)
+			effect["rotation"] = rad2deg(state.get_contact_local_normal(0).angle())
 			owner.add_child(Effect.create_effect(effect))
+			flash()
 
 
 func launch():
@@ -46,3 +63,12 @@ func stop():
 func increase_speed():
 	if speed < max_speed:
 		speed += base_speed
+
+
+func _on_PaddleBounceEffectTimer_timeout():
+	paddle_bounce_effect_active = false
+
+
+func flash():
+	$AnimationPlayer.play("flash")
+

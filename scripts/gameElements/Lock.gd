@@ -22,3 +22,6 @@ func _integrate_forces(_state):
 
 	applied_force = Vector2(0, input * speed)
 	paddle.applied_torque = rotation_direction * input * rotation_speed
+	
+func flash():
+	$Paddle/AnimationPlayer.play("flash")

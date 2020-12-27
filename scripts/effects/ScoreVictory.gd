@@ -21,5 +21,5 @@ func _on_ParticlesDeletion_timeout():
 
 
 func _on_JuiceTrigger_timeout():
-	Effect.emit_signal("screen_shake", 0.5, 12)
-	Effect.screen_freeze(85)
+	Effect.emit_signal("screen_shake", 0.3, 20) #0.5 12
+	Effect.screen_freeze(105)#85

@@ -82,6 +82,7 @@ func score_add(point):
 		effect["color_ramp"] = $Ball.color
 
 	add_child(Effect.create_effect(effect))
+	$Ball.flash()
 
 
 func start_game():

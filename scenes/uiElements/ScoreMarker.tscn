@@ -6,7 +6,7 @@
 [ext_resource path="res://sprites/effects/particles/RhombusPart3a.png" type="Texture" id=4]
 
 [sub_resource type="Animation" id=1]
-resource_name = "Flash"
+resource_name = "flash"
 length = 0.4
 step = 0.01
 tracks/0/type = "value"
@@ -38,7 +38,7 @@ tracks/1/keys = {
 material = ExtResource( 2 )
 
 [node name="FlashPlayer" type="AnimationPlayer" parent="."]
-anims/Flash = SubResource( 1 )
+anims/flash = SubResource( 1 )
 
 [node name="Marker" type="Sprite" parent="."]
 use_parent_material = true

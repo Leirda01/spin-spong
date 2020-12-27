@@ -10,9 +10,9 @@ func _ready():
 
 
 func setup_color_ramps(color: Color):
-	$SquareFlash.color_ramp = Effect.create_alpha_gradient(color, 0.5, 0)
-	$SquareScatter.color_ramp = Effect.create_alpha_gradient(color, 1, 0)
-	$Glow.color_ramp = Effect.create_alpha_gradient(color, 0.5, 0)
+	$SquareFlash.color_ramp = Effect.create_alpha_gradient(color, 0.3, 0)
+	$SquareScatter.color_ramp = Effect.create_alpha_gradient(color, 0.8, 0)
+	$Glow.color_ramp = Effect.create_alpha_gradient(color, 0.3, 0)
 
 
 func _on_ParticlesDeletion_timeout():

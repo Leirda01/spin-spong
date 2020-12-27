@@ -47,4 +47,4 @@ func update_markers(score: int, dir: int):
 		)
 
 		if right_strikes != null and int(is_on_left_side) ^ int(right_strikes):
-				marker.get_node("FlashPlayer").play("Flash")
+				marker.get_node("FlashPlayer").play("flash")

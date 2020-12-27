@@ -1,21 +1,20 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://scripts/effects/BounceWall.gd" type="Script" id=1]
+[ext_resource path="res://scripts/effects/BouncePaddle.gd" type="Script" id=1]
 [ext_resource path="res://shaders/BlendAdd.tres" type="Material" id=2]
-[ext_resource path="res://sprites/effects/particles/RhombusPart1a.png" type="Texture" id=3]
+[ext_resource path="res://sprites/effects/particles/SquarePart2a.png" type="Texture" id=3]
 [ext_resource path="res://sprites/effects/RhombusGlow.png" type="Texture" id=4]
-[ext_resource path="res://sprites/effects/particles/SquarePart3b.png" type="Texture" id=5]
+[ext_resource path="res://sprites/effects/particles/RhombusFlashLine.png" type="Texture" id=5]
 
-[sub_resource type="Curve" id=1]
-max_value = 2.0
-_data = [ Vector2( 0, 0.706633 ), 0.0, 0.55102, 0, 1, Vector2( 1, 1.25765 ), 0.55102, 0.0, 1, 0 ]
+[sub_resource type="Curve" id=3]
+_data = [ Vector2( 0, 0.117584 ), 0.0, 0.799027, 0, 1, Vector2( 0.619512, 0.612591 ), 0.799027, 0.134092, 1, 1, Vector2( 1, 0.663611 ), 0.134092, 0.0, 1, 0 ]
 
 [sub_resource type="Curve" id=2]
 min_value = 1.0
 max_value = 2.0
 _data = [ Vector2( 0.0163044, 1 ), 0.0, 0.517364, 0, 1, Vector2( 1, 1.50893 ), 0.517364, 0.0, 1, 0 ]
 
-[node name="BounceWallEffect" type="Node2D"]
+[node name="BouncePaddleEffect" type="Node2D"]
 z_index = 20
 z_as_relative = false
 script = ExtResource( 1 )
@@ -30,29 +29,33 @@ wait_time = 0.017
 one_shot = true
 autostart = true
 
-[node name="SquareScatter" type="CPUParticles2D" parent="."]
+[node name="Scatter" type="CPUParticles2D" parent="."]
 emitting = false
+amount = 20
 lifetime = 0.5
 one_shot = true
-preprocess = 0.2
+preprocess = 0.07
 explosiveness = 0.8
 texture = ExtResource( 3 )
 spread = 90.0
 gravity = Vector2( 0, 0 )
 initial_velocity = 40.0
-linear_accel = 0.2
-scale_amount = 0.4
+initial_velocity_random = 0.2
+linear_accel = -15.0
+angle = 45.0
+scale_amount = 0.8
 
-[node name="SquareFlash" type="CPUParticles2D" parent="."]
-rotation = 0.785398
+[node name="Rhombus" type="CPUParticles2D" parent="."]
+z_index = -3
+z_as_relative = false
 emitting = false
-amount = 1
-lifetime = 0.1
+amount = 3
+lifetime = 0.8
 one_shot = true
+explosiveness = 0.9
 texture = ExtResource( 5 )
-spread = 0.0
 gravity = Vector2( 0, 0 )
-scale_amount_curve = SubResource( 1 )
+scale_amount_curve = SubResource( 3 )
 
 [node name="Glow" type="CPUParticles2D" parent="."]
 material = ExtResource( 2 )
